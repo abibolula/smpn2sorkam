@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SMP Negeri 2 Sorkam</title>
-  <meta name="description" content="UPTD SMP Negeri 2 Sorkam - Sekolah Menengah Pertama Negeri terakreditasi B di Kec. Sorkam, Kab. Tapanuli Tengah, Sumatera Utara." />
+  <title id="meta-title"></title>
+  <meta name="description" id="meta-desc" content="" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
   <style>
 /* ================================================================
-   KONFIGURASI WARNA - Edit di sini untuk ganti tema
+   TEMA WARNA — ubah di sini untuk ganti warna seluruh website
 ================================================================ */
 :root {
-  --biru-tua:    #0D2B5E;   /* Warna utama biru gelap */
-  --biru-mid:    #1A4FA0;   /* Biru medium */
-  --biru-terang: #3B82F6;   /* Biru terang */
-  --biru-pucat:  #EFF6FF;   /* Background biru pucat */
-  --emas:        #D4A017;   /* Emas aksen */
-  --emas-terang: #F5C842;   /* Emas terang */
-  --emas-pucat:  #FEF9E7;   /* Background emas pucat */
+  --biru-tua:    #0D2B5E;
+  --biru-mid:    #1A4FA0;
+  --biru-terang: #3B82F6;
+  --biru-pucat:  #EFF6FF;
+  --emas:        #D4A017;
+  --emas-terang: #F5C842;
+  --emas-pucat:  #FEF9E7;
   --putih:       #FFFFFF;
   --abu-50:      #F8FAFC;
   --abu-100:     #F1F5F9;
@@ -33,1216 +32,536 @@
   --radius:      16px;
   --radius-lg:   24px;
 }
-
 /* ================================================================
    RESET & BASE
 ================================================================ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: var(--abu-700);
-  background: var(--putih);
-  overflow-x: hidden;
-  line-height: 1.6;
-}
-img { max-width: 100%; display: block; }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--abu-700);background:var(--putih);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
 /* ================================================================
-   UTILITAS UMUM
+   UTILITAS
 ================================================================ */
-.container    { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.teks-judul   {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 4vw, 42px);
-  font-weight: 700;
-  color: var(--biru-tua);
-  line-height: 1.2;
-}
-.teks-sub     { font-size: 15px; color: var(--abu-500); margin-top: 10px; line-height: 1.8; }
-.garis-emas   {
-  width: 52px; height: 4px;
-  background: linear-gradient(90deg, var(--emas), var(--emas-terang));
-  border-radius: 2px; margin: 14px 0 18px;
-}
-.badge-label  {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--emas-pucat); color: var(--emas);
-  border: 1px solid rgba(245,200,66,.3);
-  border-radius: 100px; padding: 5px 14px;
-  font-size: 12px; font-weight: 700; letter-spacing: .5px;
-  margin-bottom: 14px;
-}
-.section-pad  { padding: 80px 0; }
-.tengah       { text-align: center; }
-.tengah .garis-emas { margin-left: auto; margin-right: auto; }
-
+.container  {max-width:1200px;margin:0 auto;padding:0 20px}
+.teks-judul {font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--biru-tua);line-height:1.2}
+.teks-sub   {font-size:15px;color:var(--abu-500);margin-top:10px;line-height:1.8}
+.garis-emas {width:52px;height:4px;background:linear-gradient(90deg,var(--emas),var(--emas-terang));border-radius:2px;margin:14px 0 18px}
+.badge-label{display:inline-flex;align-items:center;gap:6px;background:var(--emas-pucat);color:var(--emas);border:1px solid rgba(245,200,66,.3);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:700;letter-spacing:.5px;margin-bottom:14px}
+.section-pad{padding:80px 0}
+.tengah     {text-align:center}
+.tengah .garis-emas{margin-left:auto;margin-right:auto}
 /* ================================================================
-   ANIMASI SCROLL REVEAL
+   SCROLL REVEAL
 ================================================================ */
-.reveal        { opacity: 0; transform: translateY(36px); transition: opacity .65s ease, transform .65s ease; }
-.reveal-kiri   { opacity: 0; transform: translateX(-36px); transition: opacity .65s ease, transform .65s ease; }
-.reveal-kanan  { opacity: 0; transform: translateX(36px);  transition: opacity .65s ease, transform .65s ease; }
-.reveal.aktif, .reveal-kiri.aktif, .reveal-kanan.aktif {
-  opacity: 1; transform: translate(0);
-}
-.delay-1 { transition-delay: .1s !important; }
-.delay-2 { transition-delay: .2s !important; }
-.delay-3 { transition-delay: .3s !important; }
-
+.reveal,.reveal-kiri,.reveal-kanan{opacity:0;transition:opacity .65s ease,transform .65s ease}
+.reveal      {transform:translateY(36px)}
+.reveal-kiri {transform:translateX(-36px)}
+.reveal-kanan{transform:translateX(36px)}
+.reveal.aktif,.reveal-kiri.aktif,.reveal-kanan.aktif{opacity:1;transform:translate(0)}
+.delay-1{transition-delay:.1s!important}
+.delay-2{transition-delay:.2s!important}
+.delay-3{transition-delay:.3s!important}
 /* ================================================================
    NAVBAR
 ================================================================ */
-#navbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 16px 0;
-  transition: all .35s ease;
-}
-#navbar.scrolled {
-  background: rgba(13,43,94,.96);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 10px 0;
-  box-shadow: 0 4px 20px rgba(0,0,0,.25);
-}
-.nav-wrap { display: flex; align-items: center; justify-content: space-between; }
-.nav-brand { display: flex; align-items: center; gap: 10px; }
-.nav-logo  {
-  width: 44px; height: 44px; border-radius: 50%;
-  object-fit: cover; border: 2px solid var(--emas);
-  flex-shrink: 0;
-}
-.nav-nama  { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: #fff; line-height: 1.2; }
-.nav-sub   { font-size: 10px; color: var(--emas-terang); letter-spacing: .8px; text-transform: uppercase; }
-.nav-menu  { display: flex; align-items: center; gap: 2px; }
-.nav-menu a {
-  color: rgba(255,255,255,.82); font-size: 13px; font-weight: 500;
-  padding: 7px 13px; border-radius: 8px; transition: all .2s; white-space: nowrap;
-}
-.nav-menu a:hover { color: #fff; background: rgba(255,255,255,.1); }
-.nav-cta-btn {
-  background: linear-gradient(135deg, var(--emas), var(--emas-terang)) !important;
-  color: var(--biru-tua) !important; font-weight: 700 !important;
-  margin-left: 4px;
-}
-/* Hamburger */
-.hamburger {
-  display: none; flex-direction: column; gap: 5px;
-  cursor: pointer; padding: 6px; background: none; border: none;
-}
-.hamburger span {
-  display: block; width: 22px; height: 2px;
-  background: #fff; border-radius: 2px; transition: all .3s;
-}
-/* Mobile menu */
-.mobile-nav {
-  display: none; position: fixed;
-  top: 64px; left: 0; right: 0; z-index: 999;
-  background: rgba(13,43,94,.97);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 12px 20px 20px;
-  flex-direction: column; gap: 2px;
-  border-top: 1px solid rgba(255,255,255,.08);
-}
-.mobile-nav.buka { display: flex; }
-.mobile-nav a {
-  color: rgba(255,255,255,.82); padding: 12px 14px;
-  border-radius: 10px; font-size: 14px; font-weight: 500;
-  transition: background .2s;
-}
-.mobile-nav a:hover { background: rgba(255,255,255,.08); color: #fff; }
-
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all .35s ease}
+#navbar.scrolled{background:rgba(13,43,94,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:10px 0;box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo {width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--emas);flex-shrink:0}
+.nav-nama {font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#fff;line-height:1.2}
+.nav-sub  {font-size:10px;color:var(--emas-terang);letter-spacing:.8px;text-transform:uppercase}
+.nav-menu {display:flex;align-items:center;gap:2px}
+.nav-menu a{color:rgba(255,255,255,.82);font-size:13px;font-weight:500;padding:7px 13px;border-radius:8px;transition:all .2s;white-space:nowrap}
+.nav-menu a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-cta-btn{background:linear-gradient(135deg,var(--emas),var(--emas-terang))!important;color:var(--biru-tua)!important;font-weight:700!important;margin-left:4px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;z-index:999;background:rgba(13,43,94,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:12px 20px 20px;flex-direction:column;gap:2px;border-top:1px solid rgba(255,255,255,.08)}
+.mobile-nav.buka{display:flex}
+.mobile-nav a{color:rgba(255,255,255,.82);padding:12px 14px;border-radius:10px;font-size:14px;font-weight:500;transition:background .2s}
+.mobile-nav a:hover{background:rgba(255,255,255,.08);color:#fff}
 /* ================================================================
-   HERO SECTION
+   HERO
 ================================================================ */
-#hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;        /* ← kunci: kolom supaya konten + stats tidak overlap */
-  justify-content: center;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background-image: url('https://drive.google.com/thumbnail?id=1LcREKkBuN7bTfYpuH5x2FJH2jvhyFYSr&sz=w1600');
-  background-size: cover; background-position: center;
-  will-change: transform; z-index: 0;
-}
-.hero-overlay {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(150deg,
-    rgba(13,43,94,.90) 0%,
-    rgba(13,43,94,.72) 55%,
-    rgba(26,79,160,.58) 100%);
-}
-.hero-body {
-  position: relative; z-index: 2;
-  padding: 130px 0 40px;       /* top = navbar height clearance */
-}
-.hero-badge-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(212,160,23,.15);
-  border: 1px solid rgba(212,160,23,.4);
-  color: var(--emas-terang);
-  padding: 7px 16px; border-radius: 100px;
-  font-size: 12px; font-weight: 600; letter-spacing: .4px;
-  margin-bottom: 20px;
-  animation: fadeUp .7s ease .1s both;
-}
-.hero-judul {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(34px, 7vw, 68px);
-  font-weight: 800; color: #fff;
-  line-height: 1.08; letter-spacing: -.5px;
-  animation: fadeUp .7s ease .25s both;
-}
-.hero-judul span { color: var(--emas-terang); }
-.hero-tagline {
-  font-size: clamp(14px, 2.4vw, 18px); color: rgba(255,255,255,.88);
-  margin: 18px 0 10px; font-weight: 500; line-height: 1.55;
-  animation: fadeUp .7s ease .4s both;
-}
-.hero-deskripsi {
-  font-size: 14px; color: rgba(255,255,255,.70);
-  line-height: 1.85; margin-bottom: 32px; max-width: 580px;
-  animation: fadeUp .7s ease .5s both;
-}
-.hero-tombol { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp .7s ease .6s both; }
-.btn-utama {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: linear-gradient(135deg, var(--emas), var(--emas-terang));
-  color: var(--biru-tua); font-weight: 700; font-size: 14px;
-  padding: 13px 26px; border-radius: 12px; border: none; cursor: pointer;
-  box-shadow: 0 6px 20px rgba(212,160,23,.35); transition: all .3s;
-}
-.btn-utama:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(212,160,23,.45); }
-.btn-outline {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,255,255,.35);
-  color: #fff; font-weight: 600; font-size: 14px;
-  padding: 13px 26px; border-radius: 12px; cursor: pointer;
-  backdrop-filter: blur(8px); transition: all .3s;
-}
-.btn-outline:hover { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.6); }
-
-/* Hero Stats — di bawah konten, bukan absolute */
-.hero-stats {
-  position: relative; z-index: 2;
-  padding: 32px 0 36px;
-  animation: fadeUp .7s ease .75s both;
-}
-.hero-stats-kotak {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);   /* 4 kolom desktop */
-  background: rgba(255,255,255,.09);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  width: 100%; max-width: 640px;
-}
-.stat-item {
-  padding: 18px 16px; text-align: center;
-  border-right: 1px solid rgba(255,255,255,.1);
-}
-.stat-item:last-child { border-right: none; }
-.stat-angka { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--emas-terang); }
-.stat-label { font-size: 11px; color: rgba(255,255,255,.65); margin-top: 3px; line-height: 1.3; }
-
-@keyframes fadeUp   { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
-@keyframes fadeDown { from { opacity:0; transform:translateY(-16px); } to { opacity:1; transform:translateY(0); } }
-
+#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;will-change:transform;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(150deg,rgba(13,43,94,.90) 0%,rgba(13,43,94,.72) 55%,rgba(26,79,160,.58) 100%)}
+.hero-body{position:relative;z-index:2;padding:130px 0 40px}
+.hero-badge-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.4);color:var(--emas-terang);padding:7px 16px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:.4px;margin-bottom:20px;animation:fadeUp .7s ease .1s both}
+.hero-judul{font-family:'Playfair Display',serif;font-size:clamp(34px,7vw,68px);font-weight:800;color:#fff;line-height:1.08;letter-spacing:-.5px;animation:fadeUp .7s ease .25s both}
+.hero-judul span{color:var(--emas-terang)}
+.hero-tagline{font-size:clamp(14px,2.4vw,18px);color:rgba(255,255,255,.88);margin:18px 0 10px;font-weight:500;line-height:1.55;animation:fadeUp .7s ease .4s both}
+.hero-deskripsi{font-size:14px;color:rgba(255,255,255,.70);line-height:1.85;margin-bottom:32px;max-width:580px;animation:fadeUp .7s ease .5s both}
+.hero-tombol{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .7s ease .6s both}
+.btn-utama{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--emas),var(--emas-terang));color:var(--biru-tua);font-weight:700;font-size:14px;padding:13px 26px;border-radius:12px;border:none;cursor:pointer;box-shadow:0 6px 20px rgba(212,160,23,.35);transition:all .3s}
+.btn-utama:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(212,160,23,.45)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.35);color:#fff;font-weight:600;font-size:14px;padding:13px 26px;border-radius:12px;cursor:pointer;backdrop-filter:blur(8px);transition:all .3s}
+.btn-outline:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.6)}
+.hero-stats{position:relative;z-index:2;padding:32px 0 36px;animation:fadeUp .7s ease .75s both}
+.hero-stats-kotak{display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.09);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-lg);overflow:hidden;width:100%;max-width:640px}
+.stat-item{padding:18px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
+.stat-item:last-child{border-right:none}
+.stat-angka{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--emas-terang)}
+.stat-label{font-size:11px;color:rgba(255,255,255,.65);margin-top:3px;line-height:1.3}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 /* ================================================================
-   TENTANG SEKOLAH
+   TENTANG
 ================================================================ */
-#tentang { background: var(--putih); }
-.tentang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-.foto-wrap     { position: relative; }
-.foto-utama    {
-  width: 100%; height: 440px; object-fit: cover;
-  border-radius: var(--radius-lg); box-shadow: var(--bayangan-lg);
-}
-.foto-badge {
-  position: absolute; bottom: -18px; right: -18px;
-  background: linear-gradient(135deg, var(--emas), var(--emas-terang));
-  color: var(--biru-tua); padding: 18px 22px;
-  border-radius: var(--radius); box-shadow: var(--bayangan-md); text-align: center;
-}
-.foto-badge .angka { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 800; }
-.foto-badge .kecil { font-size: 11px; font-weight: 700; margin-top: 2px; }
-.info-grid   { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
-.info-item   {
-  background: var(--biru-pucat); border: 1px solid #DBEAFE;
-  border-radius: var(--radius); padding: 14px 16px;
-}
-.info-item .label { font-size: 10px; font-weight: 700; color: var(--biru-mid); letter-spacing: .8px; text-transform: uppercase; }
-.info-item .nilai { font-size: 13px; font-weight: 600; color: var(--biru-tua); margin-top: 4px; line-height: 1.4; }
-.info-item.lebar  { grid-column: span 2; }
-
+.tentang-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.foto-wrap   {position:relative}
+.foto-utama  {width:100%;height:440px;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--bayangan-lg)}
+.foto-badge  {position:absolute;bottom:-18px;right:-18px;background:linear-gradient(135deg,var(--emas),var(--emas-terang));color:var(--biru-tua);padding:18px 22px;border-radius:var(--radius);box-shadow:var(--bayangan-md);text-align:center}
+.foto-badge .angka{font-family:'Playfair Display',serif;font-size:26px;font-weight:800}
+.foto-badge .kecil{font-size:11px;font-weight:700;margin-top:2px}
+.info-grid   {display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.info-item   {background:var(--biru-pucat);border:1px solid #DBEAFE;border-radius:var(--radius);padding:14px 16px}
+.info-item .label{font-size:10px;font-weight:700;color:var(--biru-mid);letter-spacing:.8px;text-transform:uppercase}
+.info-item .nilai{font-size:13px;font-weight:600;color:var(--biru-tua);margin-top:4px;line-height:1.4}
+.info-item.lebar{grid-column:span 2}
 /* ================================================================
-   VISI & MISI
+   VISI MISI
 ================================================================ */
-#visimisi { background: var(--abu-50); }
-.vm-grid  { display: grid; grid-template-columns: 1fr 1.5fr; gap: 24px; align-items: start; }
-.visi-card {
-  background: linear-gradient(135deg, var(--biru-tua), var(--biru-mid));
-  border-radius: var(--radius-lg); padding: 36px 32px; color: #fff; overflow: hidden; position: relative;
-}
-.visi-card::before {
-  content: ''; position: absolute; top: -50px; right: -50px;
-  width: 160px; height: 160px; background: rgba(255,255,255,.05); border-radius: 50%;
-}
-.visi-icon {
-  width: 52px; height: 52px; border-radius: 12px;
-  background: rgba(212,160,23,.2);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 26px; margin-bottom: 18px;
-}
-.visi-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--emas-terang); margin-bottom: 14px; }
-.visi-card p  { font-size: 14px; line-height: 1.85; color: rgba(255,255,255,.84); }
-.misi-card {
-  background: var(--putih); border-radius: var(--radius-lg);
-  padding: 36px 32px; border: 1px solid var(--abu-100);
-  box-shadow: var(--bayangan-md);
-}
-.misi-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--biru-tua); margin-bottom: 20px; }
-.misi-list    { display: flex; flex-direction: column; gap: 12px; }
-.misi-item    { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.6; }
-.misi-no      {
-  width: 28px; height: 28px; border-radius: 7px; flex-shrink: 0;
-  background: linear-gradient(135deg, var(--emas), var(--emas-terang));
-  display: flex; align-items: center; justify-content: center;
-  font-size: 12px; font-weight: 800; color: var(--biru-tua);
-}
-
+.vm-grid    {display:grid;grid-template-columns:1fr 1.5fr;gap:24px;align-items:start}
+.visi-card  {background:linear-gradient(135deg,var(--biru-tua),var(--biru-mid));border-radius:var(--radius-lg);padding:36px 32px;color:#fff;overflow:hidden;position:relative}
+.visi-card::before{content:'';position:absolute;top:-50px;right:-50px;width:160px;height:160px;background:rgba(255,255,255,.05);border-radius:50%}
+.visi-icon  {width:52px;height:52px;border-radius:12px;background:rgba(212,160,23,.2);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px}
+.visi-card h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--emas-terang);margin-bottom:14px}
+.visi-card p {font-size:14px;line-height:1.85;color:rgba(255,255,255,.84)}
+.misi-card  {background:var(--putih);border-radius:var(--radius-lg);padding:36px 32px;border:1px solid var(--abu-100);box-shadow:var(--bayangan-md)}
+.misi-card h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--biru-tua);margin-bottom:20px}
+.misi-list  {display:flex;flex-direction:column;gap:12px}
+.misi-item  {display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.6}
+.misi-no    {width:28px;height:28px;border-radius:7px;flex-shrink:0;background:linear-gradient(135deg,var(--emas),var(--emas-terang));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--biru-tua)}
 /* ================================================================
-   SAMBUTAN KEPALA SEKOLAH
+   SAMBUTAN
 ================================================================ */
-#sambutan { background: var(--putih); }
-.sambutan-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 56px; align-items: center; }
-.sambutan-foto-wrap { text-align: center; }
-.sambutan-foto {
-  width: 210px; height: 210px; object-fit: cover; object-position: top;
-  border-radius: 50%; border: 5px solid #fff;
-  box-shadow: 0 0 0 3px var(--emas), var(--bayangan-lg);
-  margin: 0 auto 16px;
-}
-.sambutan-nama { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--biru-tua); }
-.sambutan-jabatan { font-size: 12px; font-weight: 700; color: var(--emas); letter-spacing: .8px; text-transform: uppercase; margin-top: 4px; }
-.sambutan-kotak {
-  background: linear-gradient(135deg, var(--biru-pucat), #EFF6FF88);
-  border: 1px solid #DBEAFE; border-radius: var(--radius-lg);
-  padding: 36px; position: relative;
-}
-.sambutan-kotak::before {
-  content: '\201C'; font-family: 'Playfair Display', serif;
-  font-size: 110px; color: var(--biru-terang); opacity: .12;
-  position: absolute; top: -18px; left: 18px; line-height: 1;
-}
-.sambutan-teks {
-  font-size: 15px; line-height: 1.95; color: var(--abu-700);
-  font-style: italic; position: relative; z-index: 1;
-}
-
+.sambutan-grid{display:grid;grid-template-columns:1fr 2fr;gap:56px;align-items:center}
+.sambutan-foto{width:210px;height:210px;object-fit:cover;object-position:top;border-radius:50%;border:5px solid #fff;box-shadow:0 0 0 3px var(--emas),var(--bayangan-lg);margin:0 auto 16px}
+.sambutan-nama{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--biru-tua);text-align:center}
+.sambutan-jabatan{font-size:12px;font-weight:700;color:var(--emas);letter-spacing:.8px;text-transform:uppercase;margin-top:4px;text-align:center}
+.sambutan-kotak{background:linear-gradient(135deg,var(--biru-pucat),#EFF6FF88);border:1px solid #DBEAFE;border-radius:var(--radius-lg);padding:36px;position:relative}
+.sambutan-kotak::before{content:'\201C';font-family:'Playfair Display',serif;font-size:110px;color:var(--biru-terang);opacity:.12;position:absolute;top:-18px;left:18px;line-height:1}
+.sambutan-teks{font-size:15px;line-height:1.95;color:var(--abu-700);font-style:italic;position:relative;z-index:1}
 /* ================================================================
-   GURU & TENAGA PENDIDIK
+   GURU
 ================================================================ */
-#guru { background: var(--abu-50); }
-.guru-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 20px;
-}
-.guru-card {
-  background: var(--putih); border-radius: var(--radius-lg);
-  border: 1px solid var(--abu-100); overflow: hidden;
-  box-shadow: var(--bayangan-sm); transition: all .3s; text-align: center;
-}
-.guru-card:hover { transform: translateY(-6px); box-shadow: var(--bayangan-lg); }
-.guru-foto-wrap  { height: 210px; overflow: hidden; background: var(--abu-100); }
-.guru-foto       { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .4s; }
-.guru-card:hover .guru-foto { transform: scale(1.07); }
-.guru-info       { padding: 18px 14px; }
-.guru-nama       { font-weight: 700; font-size: 14px; color: var(--biru-tua); line-height: 1.3; margin-bottom: 6px; }
-.guru-mapel      {
-  font-size: 12px; font-weight: 600; color: var(--emas);
-  background: var(--emas-pucat); border-radius: 100px;
-  padding: 3px 12px; display: inline-block;
-}
-
+.guru-grid  {display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+.guru-card  {background:var(--putih);border-radius:var(--radius-lg);border:1px solid var(--abu-100);overflow:hidden;box-shadow:var(--bayangan-sm);transition:all .3s;text-align:center}
+.guru-card:hover{transform:translateY(-6px);box-shadow:var(--bayangan-lg)}
+.guru-foto-wrap{height:210px;overflow:hidden;background:var(--abu-100)}
+.guru-foto  {width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .4s}
+.guru-card:hover .guru-foto{transform:scale(1.07)}
+.guru-info  {padding:18px 14px}
+.guru-nama  {font-weight:700;font-size:14px;color:var(--biru-tua);line-height:1.3;margin-bottom:6px}
+.guru-mapel {font-size:12px;font-weight:600;color:var(--emas);background:var(--emas-pucat);border-radius:100px;padding:3px 12px;display:inline-block}
 /* ================================================================
-   KEGIATAN SEKOLAH (VIDEO)
+   VIDEO
 ================================================================ */
-#kegiatan { background: var(--putih); }
-.video-tabs {
-  display: flex; gap: 10px; flex-wrap: wrap;
-  justify-content: center; margin-bottom: 28px;
-}
-.video-tab {
-  padding: 9px 20px; border-radius: 100px;
-  border: 2px solid var(--abu-300); background: transparent;
-  cursor: pointer; font-size: 13px; font-weight: 600;
-  color: var(--abu-500); transition: all .2s; font-family: inherit;
-}
-.video-tab.aktif {
-  background: linear-gradient(135deg, var(--biru-tua), var(--biru-mid));
-  border-color: transparent; color: #fff;
-}
-.video-bingkai {
-  border-radius: var(--radius-lg); overflow: hidden;
-  box-shadow: var(--bayangan-lg); aspect-ratio: 16/9; background: #000;
-}
-.video-bingkai iframe { width: 100%; height: 100%; border: none; display: block; }
-
+.video-tabs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:28px}
+.video-tab {padding:9px 20px;border-radius:100px;border:2px solid var(--abu-300);background:transparent;cursor:pointer;font-size:13px;font-weight:600;color:var(--abu-500);transition:all .2s;font-family:inherit}
+.video-tab.aktif{background:linear-gradient(135deg,var(--biru-tua),var(--biru-mid));border-color:transparent;color:#fff}
+.video-bingkai{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--bayangan-lg);aspect-ratio:16/9;background:#000}
+.video-bingkai iframe{width:100%;height:100%;border:none;display:block}
 /* ================================================================
-   PRESTASI SEKOLAH
+   PRESTASI
 ================================================================ */
-#prestasi { background: var(--abu-50); }
-.prestasi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-.prestasi-card {
-  background: var(--putih); border-radius: var(--radius-lg);
-  padding: 28px 24px; border: 1px solid var(--abu-100);
-  box-shadow: var(--bayangan-sm); transition: all .3s;
-}
-.prestasi-card:hover { transform: translateY(-4px); box-shadow: var(--bayangan-md); }
-.prestasi-card.unggulan {
-  background: linear-gradient(135deg, var(--biru-tua), var(--biru-mid));
-  border-color: transparent;
-}
-.prestasi-card.unggulan .p-judul   { color: var(--emas-terang); }
-.prestasi-card.unggulan .p-item    { color: rgba(255,255,255,.88); }
-.prestasi-card.unggulan .p-icon    { background: rgba(212,160,23,.2); }
-.p-icon  {
-  width: 48px; height: 48px; border-radius: 12px;
-  background: var(--emas-pucat); font-size: 22px;
-  display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
-}
-.p-judul { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--biru-tua); margin-bottom: 14px; }
-.p-daftar { display: flex; flex-direction: column; gap: 8px; }
-.p-item  { font-size: 13px; color: var(--abu-700); display: flex; gap: 8px; line-height: 1.5; }
-.p-item::before { content: '▸'; color: var(--emas); flex-shrink: 0; }
-
+.prestasi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.prestasi-card{background:var(--putih);border-radius:var(--radius-lg);padding:28px 24px;border:1px solid var(--abu-100);box-shadow:var(--bayangan-sm);transition:all .3s}
+.prestasi-card:hover{transform:translateY(-4px);box-shadow:var(--bayangan-md)}
+.prestasi-card.unggulan{background:linear-gradient(135deg,var(--biru-tua),var(--biru-mid));border-color:transparent}
+.prestasi-card.unggulan .p-judul{color:var(--emas-terang)}
+.prestasi-card.unggulan .p-item{color:rgba(255,255,255,.88)}
+.prestasi-card.unggulan .p-icon{background:rgba(212,160,23,.2)}
+.p-icon  {width:48px;height:48px;border-radius:12px;background:var(--emas-pucat);font-size:22px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.p-judul {font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--biru-tua);margin-bottom:14px}
+.p-daftar{display:flex;flex-direction:column;gap:8px}
+.p-item  {font-size:13px;color:var(--abu-700);display:flex;gap:8px;line-height:1.5}
+.p-item::before{content:'▸';color:var(--emas);flex-shrink:0}
 /* ================================================================
-   FASILITAS SEKOLAH
+   FASILITAS
 ================================================================ */
-#fasilitas { background: var(--putih); }
-.fasilitas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
-.fasilitas-card {
-  background: var(--putih); border: 1px solid var(--abu-100);
-  border-radius: var(--radius-lg); padding: 24px 16px;
-  text-align: center; box-shadow: var(--bayangan-sm);
-  transition: all .3s; cursor: default;
-}
-.fasilitas-card:hover {
-  background: linear-gradient(135deg, var(--biru-tua), var(--biru-mid));
-  border-color: transparent; transform: translateY(-4px);
-  box-shadow: var(--bayangan-md);
-}
-.fasilitas-card:hover .f-nama { color: #fff; }
-.fasilitas-card:hover .f-ikon { background: rgba(212,160,23,.2); }
-.f-ikon {
-  width: 56px; height: 56px; border-radius: 14px;
-  background: var(--biru-pucat); margin: 0 auto 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 26px; transition: background .3s;
-}
-.f-nama { font-size: 13px; font-weight: 700; color: var(--biru-tua); transition: color .3s; }
-
+.fasilitas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}
+.fasilitas-card{background:var(--putih);border:1px solid var(--abu-100);border-radius:var(--radius-lg);padding:24px 16px;text-align:center;box-shadow:var(--bayangan-sm);transition:all .3s;cursor:default}
+.fasilitas-card:hover{background:linear-gradient(135deg,var(--biru-tua),var(--biru-mid));border-color:transparent;transform:translateY(-4px);box-shadow:var(--bayangan-md)}
+.fasilitas-card:hover .f-nama{color:#fff}
+.fasilitas-card:hover .f-ikon{background:rgba(212,160,23,.2)}
+.f-ikon{width:56px;height:56px;border-radius:14px;background:var(--biru-pucat);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:26px;transition:background .3s}
+.f-nama{font-size:13px;font-weight:700;color:var(--biru-tua);transition:color .3s}
 /* ================================================================
-   GALERI SEKOLAH
+   GALERI
 ================================================================ */
-#galeri { background: var(--abu-50); }
-.galeri-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 220px;
-  gap: 14px;
-}
-.galeri-item {
-  border-radius: var(--radius); overflow: hidden;
-  position: relative; cursor: pointer; background: var(--abu-100);
-}
-.galeri-item.besar { grid-column: span 1; grid-row: span 2; }
-.galeri-img   { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-.galeri-item:hover .galeri-img { transform: scale(1.09); }
-.galeri-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(13,43,94,.72) 0%, transparent 55%);
-  opacity: 0; transition: opacity .3s;
-  display: flex; align-items: flex-end; padding: 16px;
-}
-.galeri-item:hover .galeri-overlay { opacity: 1; }
-.galeri-keterangan { color: #fff; font-size: 13px; font-weight: 600; }
-
+.galeri-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:220px;gap:14px}
+.galeri-item{border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;background:var(--abu-100)}
+.galeri-item.besar{grid-column:span 1;grid-row:span 2}
+.galeri-img  {width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.galeri-item:hover .galeri-img{transform:scale(1.09)}
+.galeri-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,43,94,.72) 0%,transparent 55%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:16px}
+.galeri-item:hover .galeri-overlay{opacity:1}
+.galeri-keterangan{color:#fff;font-size:13px;font-weight:600}
 /* Lightbox */
-#lightbox {
-  display: none; position: fixed; inset: 0; z-index: 9999;
-  background: rgba(0,0,0,.93); align-items: center; justify-content: center;
-}
-#lightbox.buka { display: flex; }
-#lightbox img  { max-width: 90vw; max-height: 85vh; border-radius: var(--radius); object-fit: contain; }
-.lb-tombol     {
-  position: absolute; color: #fff; font-size: 22px; cursor: pointer;
-  background: rgba(255,255,255,.1); width: 42px; height: 42px;
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  border: none; transition: background .2s; font-family: inherit;
-}
-.lb-tombol:hover { background: rgba(255,255,255,.22); }
-#lb-tutup { top: 18px; right: 20px; font-size: 18px; }
-#lb-prev  { left: 16px;  top: 50%; transform: translateY(-50%); }
-#lb-next  { right: 16px; top: 50%; transform: translateY(-50%); }
-
+#lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.93);align-items:center;justify-content:center}
+#lightbox.buka{display:flex}
+#lightbox img{max-width:90vw;max-height:85vh;border-radius:var(--radius);object-fit:contain}
+.lb-tombol{position:absolute;color:#fff;font-size:22px;cursor:pointer;background:rgba(255,255,255,.1);width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;transition:background .2s;font-family:inherit}
+.lb-tombol:hover{background:rgba(255,255,255,.22)}
+#lb-tutup{top:18px;right:20px;font-size:18px}
+#lb-prev {left:16px;top:50%;transform:translateY(-50%)}
+#lb-next {right:16px;top:50%;transform:translateY(-50%)}
 /* ================================================================
-   LOKASI & KONTAK
+   SPMB
 ================================================================ */
-#lokasi { background: var(--putih); }
-.lokasi-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; align-items: start; }
-.peta-wrap   { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--bayangan-md); height: 380px; }
-.peta-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
-.kontak-list { display: flex; flex-direction: column; gap: 14px; }
-.kontak-item {
-  background: var(--biru-pucat); border: 1px solid #DBEAFE;
-  border-radius: var(--radius); padding: 18px 20px;
-  display: flex; align-items: flex-start; gap: 14px;
-}
-.kontak-ikon {
-  width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
-  background: linear-gradient(135deg, var(--biru-mid), var(--biru-terang));
-  display: flex; align-items: center; justify-content: center; font-size: 18px;
-}
-.kontak-label { font-size: 11px; font-weight: 700; color: var(--biru-mid); text-transform: uppercase; letter-spacing: .8px; }
-.kontak-nilai { font-size: 14px; font-weight: 600; color: var(--biru-tua); margin-top: 3px; line-height: 1.5; }
-.kontak-nilai a { color: var(--biru-mid); }
-.kontak-nilai a:hover { color: var(--biru-tua); text-decoration: underline; }
-.wa-tombol {
-  display: flex; align-items: center; justify-content: center; gap: 10px;
-  background: #25D366; color: #fff; font-weight: 700; font-size: 14px;
-  padding: 14px 28px; border-radius: 12px; margin-top: 4px;
-  box-shadow: 0 6px 20px rgba(37,211,102,.3); transition: all .3s;
-}
-.wa-tombol:hover { background: #1fb855; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,211,102,.4); }
-
+#spmb{background:linear-gradient(135deg,#EFF6FF 0%,#FEF9E7 100%);border-top:1px solid #DBEAFE}
+.spmb-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:start}
+.spmb-blok      {margin-top:24px}
+.spmb-blok-judul{font-size:13px;font-weight:700;color:var(--biru-mid);text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px}
+.spmb-tag-grid  {display:flex;flex-wrap:wrap;gap:8px}
+.spmb-tag       {background:var(--biru-pucat);border:1px solid #DBEAFE;color:var(--biru-tua);font-size:13px;font-weight:600;padding:6px 14px;border-radius:100px}
+.spmb-wilayah-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.spmb-wil-item  {font-size:13px;font-weight:600;color:var(--abu-700);background:var(--abu-50);border:1px solid var(--abu-100);border-radius:8px;padding:8px 12px}
+.spmb-kontak-list{display:flex;flex-direction:column;gap:8px}
+.spmb-kontak-item{display:flex;align-items:center;gap:12px;background:var(--putih);border:1px solid var(--abu-100);border-radius:10px;padding:10px 14px;transition:all .2s;box-shadow:var(--bayangan-sm)}
+.spmb-kontak-item:hover{background:var(--biru-pucat);border-color:#DBEAFE;transform:translateX(4px)}
+.spmb-wa-icon   {font-size:20px;flex-shrink:0}
+.sk-nama{font-size:13px;font-weight:700;color:var(--biru-tua)}
+.sk-no  {font-size:12px;color:var(--biru-mid);font-weight:600;margin-top:1px}
+/* ================================================================
+   LOKASI
+================================================================ */
+.lokasi-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:start}
+.peta-wrap  {border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--bayangan-md);height:380px}
+.peta-wrap iframe{width:100%;height:100%;border:none;display:block}
+.kontak-list{display:flex;flex-direction:column;gap:14px}
+.kontak-item{background:var(--biru-pucat);border:1px solid #DBEAFE;border-radius:var(--radius);padding:18px 20px;display:flex;align-items:flex-start;gap:14px}
+.kontak-ikon{width:40px;height:40px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,var(--biru-mid),var(--biru-terang));display:flex;align-items:center;justify-content:center;font-size:18px}
+.kontak-label{font-size:11px;font-weight:700;color:var(--biru-mid);text-transform:uppercase;letter-spacing:.8px}
+.kontak-nilai{font-size:14px;font-weight:600;color:var(--biru-tua);margin-top:3px;line-height:1.5}
+.kontak-nilai a{color:var(--biru-mid)}
+.kontak-nilai a:hover{color:var(--biru-tua);text-decoration:underline}
+.wa-tombol{display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;font-weight:700;font-size:14px;padding:14px 28px;border-radius:12px;margin-top:4px;box-shadow:0 6px 20px rgba(37,211,102,.3);transition:all .3s}
+.wa-tombol:hover{background:#1fb855;transform:translateY(-2px);box-shadow:0 10px 28px rgba(37,211,102,.4)}
 /* ================================================================
    FOOTER
 ================================================================ */
-#footer { background: var(--abu-900); padding: 60px 0 0; }
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 40px; padding-bottom: 48px;
-}
-.footer-brand { display: flex; flex-direction: column; gap: 14px; }
-.footer-logo  { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; border: 2px solid var(--emas); }
-.footer-nama  { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: #fff; }
-.footer-desc  { font-size: 13px; color: #94A3B8; line-height: 1.75; }
-.footer-kolom h4 {
-  font-size: 12px; font-weight: 700; color: var(--emas-terang);
-  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px;
-}
-.footer-link-list { display: flex; flex-direction: column; gap: 9px; }
-.footer-link-list a { font-size: 13px; color: #94A3B8; transition: color .2s; }
-.footer-link-list a:hover { color: #fff; }
-.footer-info-item { font-size: 13px; color: #94A3B8; margin-bottom: 9px; display: flex; align-items: flex-start; gap: 7px; line-height: 1.5; }
-.footer-info-item a { color: #94A3B8; }
-.footer-info-item a:hover { color: #fff; }
-.footer-bawah { border-top: 1px solid #1E293B; padding: 18px 0; text-align: center; }
-.footer-bawah p { font-size: 12px; color: #475569; }
-.footer-bawah span { color: var(--emas); }
-
+#footer{background:var(--abu-900);padding:60px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px}
+.footer-brand{display:flex;flex-direction:column;gap:14px}
+.footer-logo {width:54px;height:54px;border-radius:50%;object-fit:cover;border:2px solid var(--emas)}
+.footer-nama {font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff}
+.footer-desc {font-size:13px;color:#94A3B8;line-height:1.75}
+.footer-kolom h4{font-size:12px;font-weight:700;color:var(--emas-terang);text-transform:uppercase;letter-spacing:1px;margin-bottom:18px}
+.footer-link-list{display:flex;flex-direction:column;gap:9px}
+.footer-link-list a{font-size:13px;color:#94A3B8;transition:color .2s}
+.footer-link-list a:hover{color:#fff}
+.footer-info-item{font-size:13px;color:#94A3B8;margin-bottom:9px;display:flex;align-items:flex-start;gap:7px;line-height:1.5}
+.footer-info-item a{color:#94A3B8}
+.footer-info-item a:hover{color:#fff}
+.footer-bawah{border-top:1px solid #1E293B;padding:18px 0;text-align:center}
+.footer-bawah p{font-size:12px;color:#475569}
+.footer-bawah span{color:var(--emas)}
 /* ================================================================
-   RESPONSIVE — MOBILE FIRST FIXES
+   RESPONSIVE
 ================================================================ */
-@media (max-width: 1024px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .vm-grid     { grid-template-columns: 1fr; }
+@media(max-width:1024px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .vm-grid{grid-template-columns:1fr}
 }
-
-@media (max-width: 768px) {
-  /* Navbar */
-  .nav-menu   { display: none; }
-  .hamburger  { display: flex; }
-
-  /* Hero */
-  .hero-body  { padding: 90px 0 28px; }
-  .hero-stats-kotak { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
-  .stat-item  { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
-  .stat-item:nth-child(odd)  { border-right: 1px solid rgba(255,255,255,.1); }
-  .stat-item:nth-last-child(-n+2) { border-bottom: none; }
-
-  /* Layout */
-  .tentang-grid  { grid-template-columns: 1fr; }
-  .sambutan-grid { grid-template-columns: 1fr; }
-  .lokasi-grid   { grid-template-columns: 1fr; }
-  .foto-badge    { right: 0; bottom: -16px; }
-  .foto-utama    { height: 280px; }
-  .sambutan-foto { width: 160px; height: 160px; }
-
-  /* Galeri */
-  .galeri-grid   { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
-  .galeri-item.besar { grid-column: span 1; grid-row: span 1; }
-
-  /* Guru: 2 kolom di HP */
-  .guru-grid { grid-template-columns: repeat(2, 1fr); }
-
-  /* Footer */
-  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+@media(max-width:768px){
+  .nav-menu{display:none}
+  .hamburger{display:flex}
+  .hero-body{padding:90px 0 28px}
+  .hero-stats-kotak{grid-template-columns:repeat(2,1fr);max-width:100%}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}
+  .stat-item:nth-child(odd){border-right:1px solid rgba(255,255,255,.1)}
+  .stat-item:nth-last-child(-n+2){border-bottom:none}
+  .tentang-grid,.sambutan-grid,.lokasi-grid,.spmb-grid{grid-template-columns:1fr}
+  .foto-badge{right:0;bottom:-16px}
+  .foto-utama{height:280px}
+  .sambutan-foto{width:160px;height:160px}
+  .galeri-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+  .galeri-item.besar{grid-column:span 1;grid-row:span 1}
+  .guru-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
 }
-
-@media (max-width: 480px) {
-  .hero-stats-kotak { grid-template-columns: repeat(2, 1fr); }
-  .galeri-grid   { grid-template-columns: 1fr 1fr; grid-auto-rows: 140px; }
-  .fasilitas-grid{ grid-template-columns: repeat(2, 1fr); }
-  .prestasi-grid { grid-template-columns: 1fr; }
-  .hero-tombol   { flex-direction: column; }
-  .btn-utama, .btn-outline { justify-content: center; }
+@media(max-width:480px){
+  .hero-stats-kotak{grid-template-columns:repeat(2,1fr)}
+  .galeri-grid{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+  .fasilitas-grid{grid-template-columns:repeat(2,1fr)}
+  .prestasi-grid{grid-template-columns:1fr}
+  .hero-tombol{flex-direction:column}
+  .btn-utama,.btn-outline{justify-content:center}
 }
   </style>
 </head>
 <body>
 
 <!-- ================================================================
-     NAVBAR
+     HTML SKELETON — struktur halaman, tidak perlu diubah
 ================================================================ -->
+
+<!-- NAVBAR -->
 <nav id="navbar">
   <div class="container">
     <div class="nav-wrap">
       <div class="nav-brand">
-        <!-- LOGO: ganti ID Google Drive jika logo berubah -->
-        <img src="https://drive.google.com/thumbnail?id=1u13N13Xu9L8Q6rfZ6YcwRakwaU2x41Iv&sz=w200"
-             alt="Logo SMP Negeri 2 Sorkam" class="nav-logo" />
+        <img id="navLogo" src="" alt="Logo" class="nav-logo"/>
         <div>
-          <div class="nav-nama">SMP Negeri 2 Sorkam</div>
-          <div class="nav-sub">Tapanuli Tengah · Sumatra Utara</div>
+          <div class="nav-nama" id="navNama"></div>
+          <div class="nav-sub"  id="navSub"></div>
         </div>
       </div>
-      <!-- Menu navigasi desktop -->
-      <nav class="nav-menu">
-        <a href="#tentang">Tentang</a>
-        <a href="#visimisi">Visi & Misi</a>
-        <a href="#guru">Guru</a>
-        <a href="#kegiatan">Kegiatan</a>
-        <a href="#fasilitas">Fasilitas</a>
-        <a href="#galeri">Galeri</a>
-        <a href="#lokasi" class="nav-cta-btn">Kontak</a>
-      </nav>
-      <button class="hamburger" onclick="toggleMenu()" aria-label="Buka menu">
+      <nav class="nav-menu" id="navDesktop"></nav>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
 </nav>
+<div class="mobile-nav" id="mobileNav"></div>
 
-<!-- Mobile nav -->
-<div class="mobile-nav" id="mobileNav">
-  <a href="#tentang"   onclick="tutupMenu()">🏫 Tentang</a>
-  <a href="#visimisi"  onclick="tutupMenu()">🎯 Visi & Misi</a>
-  <a href="#sambutan"  onclick="tutupMenu()">💬 Sambutan</a>
-  <a href="#guru"      onclick="tutupMenu()">👨‍🏫 Guru</a>
-  <a href="#kegiatan"  onclick="tutupMenu()">🎬 Kegiatan</a>
-  <a href="#prestasi"  onclick="tutupMenu()">🏆 Prestasi</a>
-  <a href="#fasilitas" onclick="tutupMenu()">🏗️ Fasilitas</a>
-  <a href="#galeri"    onclick="tutupMenu()">📸 Galeri</a>
-  <a href="#lokasi"    onclick="tutupMenu()">📍 Lokasi & Kontak</a>
-</div>
-
-
-<!-- ================================================================
-     HERO
-================================================================ -->
+<!-- HERO -->
 <section id="hero">
-  <!-- Background foto sekolah — ganti ID Google Drive di bawah -->
-  <div class="hero-bg" id="heroBg"
-       style="background-image:url('https://drive.google.com/thumbnail?id=1LcREKkBuN7bTfYpuH5x2FJH2jvhyFYSr&sz=w1600')">
-  </div>
+  <div class="hero-bg" id="heroBg"></div>
   <div class="hero-overlay"></div>
-
-  <!-- Konten utama hero -->
   <div class="hero-body">
     <div class="container">
-      <div class="hero-badge-tag">⭐ Terakreditasi B · NPSN 10206527</div>
-      <h1 class="hero-judul">
-        SMP Negeri 2<br /><span>Sorkam</span>
-      </h1>
-      <p class="hero-tagline">Membangun Generasi Cerdas, Berkarakter, dan Berprestasi</p>
-      <p class="hero-deskripsi">
-        Sekolah menengah pertama negeri terpercaya di Kabupaten Tapanuli Tengah, Sumatera Utara,
-        berkomitmen menghadirkan pendidikan berkualitas bagi generasi penerus bangsa sejak 1980.
-      </p>
+      <div class="hero-badge-tag" id="heroBadge"></div>
+      <h1 class="hero-judul" id="heroNama"></h1>
+      <p class="hero-tagline"   id="heroTagline"></p>
+      <p class="hero-deskripsi" id="heroDeskripsi"></p>
       <div class="hero-tombol">
         <a href="#tentang" class="btn-utama">📖 Lihat Profil</a>
         <a href="#lokasi"  class="btn-outline">📍 Lokasi Sekolah</a>
       </div>
     </div>
   </div>
-
-  <!-- Stats bar — di dalam flow, tidak absolute, jadi tidak overlap -->
   <div class="hero-stats">
     <div class="container">
-      <div class="hero-stats-kotak">
-        <!-- Edit statistik sekolah di sini -->
-        <div class="stat-item">
-          <div class="stat-angka">1980</div>
-          <div class="stat-label">Tahun Berdiri</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-angka">Merdeka</div>
-          <div class="stat-label">Kurikulum</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-angka">Akred. B</div>
-          <div class="stat-label">Akreditasi</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-angka">Negeri</div>
-          <div class="stat-label">Status Sekolah</div>
-        </div>
-      </div>
+      <div class="hero-stats-kotak" id="heroStats"></div>
     </div>
   </div>
 </section>
 
-
-<!-- ================================================================
-     TENTANG SEKOLAH
-================================================================ -->
-<section id="tentang" class="section-pad">
+<!-- TENTANG -->
+<section id="tentang" class="section-pad" style="background:var(--putih)">
   <div class="container">
     <div class="tentang-grid">
-
-      <!-- Foto kiri -->
       <div class="foto-wrap reveal-kiri">
-        <!-- Ganti ID Google Drive untuk foto tentang -->
-        <img src="https://drive.google.com/thumbnail?id=1dTnvbD-FsMIxLEiJm47mmPxqriz87UzH&sz=w800"
-             alt="Ruang Dalam SMP Negeri 2 Sorkam" class="foto-utama"
-             onerror="this.src='https://drive.google.com/thumbnail?id=1LcREKkBuN7bTfYpuH5x2FJH2jvhyFYSr&sz=w800'" />
+        <img id="tentangFoto" src="" alt="Foto Sekolah" class="foto-utama"/>
         <div class="foto-badge">
-          <div class="angka">44+</div>
+          <div class="angka" id="tentangTahun"></div>
           <div class="kecil">Tahun Berdiri</div>
         </div>
       </div>
-
-      <!-- Konten kanan -->
       <div class="reveal-kanan">
         <div class="badge-label">🏫 Tentang Kami</div>
         <h2 class="teks-judul">Tentang SMP Negeri 2 Sorkam</h2>
         <div class="garis-emas"></div>
-        <p class="teks-sub">
-          UPTD SMP Negeri 2 Sorkam adalah sekolah menengah pertama negeri yang berdiri sejak
-          30 Juli 1980, berlokasi di Jl. Sibolga–Barus, Desa Nai Pos Pos Barat, Kecamatan Sorkam,
-          Kabupaten Tapanuli Tengah, Sumatera Utara. Dengan lebih dari empat dekade pengalaman,
-          sekolah ini terus berkomitmen melahirkan generasi yang cerdas, berkarakter, dan siap
-          menghadapi tantangan masa depan.
-        </p>
-        <p class="teks-sub" style="margin-top:10px;">
-          Menggunakan Kurikulum Merdeka, kami memadukan pendidikan akademik dengan pembinaan karakter
-          dan moral siswa, menciptakan lingkungan belajar yang aman, nyaman, dan kondusif.
-        </p>
-
-        <!-- Info cards — edit data sekolah di sini -->
-        <div class="info-grid">
-          <div class="info-item">
-            <div class="label">NPSN</div>
-            <div class="nilai">10206527</div>
-          </div>
-          <div class="info-item">
-            <div class="label">Akreditasi</div>
-            <div class="nilai">B</div>
-          </div>
-          <div class="info-item">
-            <div class="label">No. SK Pendirian</div>
-            <div class="nilai">0206/0/1980</div>
-          </div>
-          <div class="info-item">
-            <div class="label">Tanggal SK</div>
-            <div class="nilai">30 Juli 1980</div>
-          </div>
-          <div class="info-item lebar">
-            <div class="label">Alamat Lengkap</div>
-            <div class="nilai">Jl. Sibolga–Barus, Nai Pos Pos Barat, Kec. Sorkam, Kab. Tapanuli Tengah, Sumatera Utara</div>
-          </div>
-        </div>
+        <p class="teks-sub">UPTD SMP Negeri 2 Sorkam adalah sekolah menengah pertama negeri yang berdiri sejak 30 Juli 1980, berlokasi di Jl. Sibolga–Barus, Desa Nai Pos Pos Barat, Kecamatan Sorkam, Kabupaten Tapanuli Tengah, Sumatera Utara. Dengan lebih dari empat dekade pengalaman, sekolah ini terus berkomitmen melahirkan generasi yang cerdas dan berkarakter.</p>
+        <p class="teks-sub" style="margin-top:10px">Menggunakan Kurikulum Merdeka, kami memadukan pendidikan akademik dengan pembinaan karakter dan moral siswa, menciptakan lingkungan belajar yang aman, nyaman, dan kondusif.</p>
+        <div class="info-grid" id="infoGrid"></div>
       </div>
-
     </div>
   </div>
 </section>
 
-
-<!-- ================================================================
-     VISI & MISI
-================================================================ -->
-<section id="visimisi" class="section-pad">
+<!-- VISI MISI -->
+<section id="visimisi" class="section-pad" style="background:var(--abu-50)">
   <div class="container">
-    <div class="tengah reveal" style="margin-bottom:48px;">
+    <div class="tengah reveal" style="margin-bottom:48px">
       <div class="badge-label">🎯 Arah & Tujuan</div>
       <h2 class="teks-judul">Visi & Misi Sekolah</h2>
       <div class="garis-emas"></div>
-      <p class="teks-sub" style="max-width:520px;margin:0 auto;">
-        Landasan filosofis yang mengarahkan seluruh kegiatan belajar mengajar SMP Negeri 2 Sorkam
-      </p>
     </div>
-
     <div class="vm-grid">
-      <!-- VISI — edit teks visi di sini -->
       <div class="visi-card reveal-kiri">
         <div class="visi-icon">🌟</div>
         <h3>Visi</h3>
-        <p>
-          Terwujudnya peserta didik yang bertaqwa kepada Tuhan Yang Maha Esa,
-          berakhlak mulia, cerdas, terampil, mandiri, dan berdaya saing tinggi
-          dalam rangka mencapai tujuan pendidikan nasional.
-        </p>
+        <p id="visiTeks"></p>
       </div>
-
-      <!-- MISI — tambah/hapus <li class="misi-item"> untuk mengubah butir misi -->
       <div class="misi-card reveal-kanan">
         <h3>Misi</h3>
-        <ul class="misi-list">
-          <li class="misi-item"><div class="misi-no">1</div><span>Meningkatkan kualitas proses pembelajaran dan hasil pendidikan yang bermutu</span></li>
-          <li class="misi-item"><div class="misi-no">2</div><span>Membangun karakter siswa yang berakhlak mulia, jujur, dan bertanggung jawab</span></li>
-          <li class="misi-item"><div class="misi-no">3</div><span>Meningkatkan kedisiplinan warga sekolah dalam segala aspek kehidupan</span></li>
-          <li class="misi-item"><div class="misi-no">4</div><span>Mengembangkan potensi siswa melalui kegiatan akademik, seni, dan olahraga</span></li>
-          <li class="misi-item"><div class="misi-no">5</div><span>Menciptakan lingkungan belajar yang nyaman, bersih, dan kondusif untuk semua</span></li>
-        </ul>
+        <ul class="misi-list" id="misiList"></ul>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ================================================================
-     SAMBUTAN KEPALA SEKOLAH
-================================================================ -->
-<section id="sambutan" class="section-pad">
+<!-- SAMBUTAN -->
+<section id="sambutan" class="section-pad" style="background:var(--putih)">
   <div class="container">
-    <div class="tengah reveal" style="margin-bottom:48px;">
+    <div class="tengah reveal" style="margin-bottom:48px">
       <div class="badge-label">💬 Sambutan</div>
       <h2 class="teks-judul">Sambutan Kepala Sekolah</h2>
       <div class="garis-emas"></div>
     </div>
-
     <div class="sambutan-grid">
-      <!-- Foto & identitas kepala sekolah — ganti ID foto & nama jika berubah -->
-      <div class="sambutan-foto-wrap reveal-kiri">
-        <img src="https://drive.google.com/thumbnail?id=19c3cyeF624m_EDfno0fa2JV4XN-V6cl2&sz=w400"
-             alt="Kepala Sekolah Dra. ERNITA" class="sambutan-foto" />
-        <div class="sambutan-nama">Dra. ERNITA</div>
-        <div class="sambutan-jabatan">Kepala Sekolah</div>
+      <div class="reveal-kiri" style="text-align:center">
+        <img id="kepsekFoto" src="" alt="" class="sambutan-foto"/>
+        <div class="sambutan-nama"    id="kepsekNama"></div>
+        <div class="sambutan-jabatan" id="kepsekJabatan"></div>
       </div>
-
-      <!-- Teks sambutan — edit paragraf di sini -->
       <div class="sambutan-kotak reveal-kanan">
-        <p class="sambutan-teks">
-          Assalamu'alaikum Warahmatullahi Wabarakatuh. Selamat datang di website resmi
-          SMP Negeri 2 Sorkam. Kami senantiasa berupaya memberikan pelayanan pendidikan terbaik
-          bagi seluruh peserta didik kami. Pendidikan bukan hanya tentang transfer ilmu pengetahuan,
-          melainkan juga pembentukan karakter, budi pekerti, dan kepribadian yang mulia.
-          <br /><br />
-          Kami berkomitmen untuk terus berinovasi dalam proses pembelajaran, mempersiapkan generasi
-          muda yang tidak hanya cerdas secara akademik, tetapi juga memiliki iman yang kuat,
-          akhlak yang baik, dan semangat untuk berkontribusi bagi kemajuan bangsa Indonesia.
-          <br /><br />
-          Mari bersama kita wujudkan generasi emas SMP Negeri 2 Sorkam yang cerdas, berkarakter,
-          dan berprestasi.
-        </p>
+        <p class="sambutan-teks" id="kepsekSambutan"></p>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ================================================================
-     GURU & TENAGA PENDIDIK
-     → Untuk tambah guru: duplikasi blok .guru-card di bawah
-     → Ganti ID Google Drive di setiap src foto
-================================================================ -->
-<section id="guru" class="section-pad">
+<!-- GURU -->
+<section id="guru" class="section-pad" style="background:var(--abu-50)">
   <div class="container">
-    <div class="tengah reveal" style="margin-bottom:48px;">
+    <div class="tengah reveal" style="margin-bottom:48px">
       <div class="badge-label">👨‍🏫 Tim Pengajar</div>
       <h2 class="teks-judul">Guru & Tenaga Pendidik</h2>
       <div class="garis-emas"></div>
       <p class="teks-sub">Tenaga pengajar berdedikasi yang membimbing siswa menuju prestasi terbaik</p>
     </div>
-
-    <div class="guru-grid">
-
-      <!-- [GURU 1] -->
-      <div class="guru-card reveal">
-        <div class="guru-foto-wrap">
-          <img src="https://drive.google.com/thumbnail?id=1bgAdmr3Nsi7WfO9wjb4ULbGoUV6oRj7Z&sz=w400"
-               alt="Sedni Dewi Siahaan" class="guru-foto" loading="lazy" />
-        </div>
-        <div class="guru-info">
-          <div class="guru-nama">Sedni Dewi Siahaan, S.Pd</div>
-          <div class="guru-mapel">IPS</div>
-        </div>
-      </div>
-
-      <!-- [GURU 2] -->
-      <div class="guru-card reveal delay-1">
-        <div class="guru-foto-wrap">
-          <img src="https://drive.google.com/thumbnail?id=1Xb-7_iiBj1LPQyMUxx1haF2LEzp6u3ZR&sz=w400"
-               alt="Syairo Crisnawati Br. Limbong" class="guru-foto" loading="lazy" />
-        </div>
-        <div class="guru-info">
-          <div class="guru-nama">Syairo Crisnawati Br. Limbong, S.Ag</div>
-          <div class="guru-mapel">Pend. Agama Katolik & BP</div>
-        </div>
-      </div>
-
-      <!-- [GURU 3] -->
-      <div class="guru-card reveal delay-2">
-        <div class="guru-foto-wrap">
-          <img src="https://drive.google.com/thumbnail?id=1l9iqQvfZtMqjIhI6yPEhZG1GKscrYNpd&sz=w400"
-               alt="Octa Veronica Manik" class="guru-foto" loading="lazy" />
-        </div>
-        <div class="guru-info">
-          <div class="guru-nama">Octa Veronica Manik, S.Pd</div>
-          <div class="guru-mapel">IPA</div>
-        </div>
-      </div>
-
-      <!-- [GURU 4] -->
-      <div class="guru-card reveal">
-        <div class="guru-foto-wrap">
-          <img src="https://drive.google.com/thumbnail?id=1Q3g4D5WlpPYEFlAzeFBHffKpYN5C0KYA&sz=w400"
-               alt="Wardiansyah Simatupang" class="guru-foto" loading="lazy" />
-        </div>
-        <div class="guru-info">
-          <div class="guru-nama">Wardiansyah Simatupang, S.Pd</div>
-          <div class="guru-mapel">Pend. Agama Islam & BP</div>
-        </div>
-      </div>
-
-      <!-- [GURU 5] -->
-      <div class="guru-card reveal delay-1">
-        <div class="guru-foto-wrap">
-          <img src="https://drive.google.com/thumbnail?id=1VAM2-W8Bb87uphCCkj2vhNpRxa-9ecAB&sz=w400"
-               alt="Ley Noveria Pandiangan" class="guru-foto" loading="lazy" />
-        </div>
-        <div class="guru-info">
-          <div class="guru-nama">Ley Noveria Pandiangan, S.Pd</div>
-          <div class="guru-mapel">Bahasa Indonesia</div>
-        </div>
-      </div>
-
-      <!-- [GURU 6] -->
-      <div class="guru-card reveal delay-2">
-        <div class="guru-foto-wrap">
-          <img src="https://drive.google.com/thumbnail?id=1gWn71TSuz8pqVjqoCvwsBSauOiJlOrjh&sz=w400"
-               alt="Junaida" class="guru-foto" loading="lazy" />
-        </div>
-        <div class="guru-info">
-          <div class="guru-nama">Junaida, S.Psi</div>
-          <div class="guru-mapel">BK</div>
-        </div>
-      </div>
-
-      <!-- [GURU 7] -->
-      <div class="guru-card reveal">
-        <div class="guru-foto-wrap">
-          <img src="https://drive.google.com/thumbnail?id=18gZBzUzjjjQN-g4mB62i2qNBYav8Ltri&sz=w400"
-               alt="Ifwan Adbi Nainggolan" class="guru-foto" loading="lazy" />
-        </div>
-        <div class="guru-info">
-          <div class="guru-nama">Ifwan Adbi Nainggolan, S.Pd</div>
-          <div class="guru-mapel">Bahasa Inggris</div>
-        </div>
-      </div>
-
-      <!-- [GURU 8] -->
-      <div class="guru-card reveal delay-1">
-        <div class="guru-foto-wrap">
-          <img src="https://drive.google.com/thumbnail?id=1cIPYieHFx4U22LKvuf0UJji33Hx8NP_O&sz=w400"
-               alt="Lisnawati Pasaribu" class="guru-foto" loading="lazy" />
-        </div>
-        <div class="guru-info">
-          <div class="guru-nama">Lisnawati Pasaribu, S.Pd</div>
-          <div class="guru-mapel">Bahasa Indonesia</div>
-        </div>
-      </div>
-
-      <!-- [GURU 9] -->
-      <div class="guru-card reveal delay-2">
-        <div class="guru-foto-wrap">
-          <img src="https://drive.google.com/thumbnail?id=1LN0Dxkz4U16eUEYJ0nT_WKkdY2JPOwBY&sz=w400"
-               alt="Rina Nainggolan" class="guru-foto" loading="lazy" />
-        </div>
-        <div class="guru-info">
-          <div class="guru-nama">Rina Nainggolan, S.Pd</div>
-          <div class="guru-mapel">PAK & Budi Pekerti</div>
-        </div>
-      </div>
-
-      <!-- [GURU 10] -->
-      <div class="guru-card reveal">
-        <div class="guru-foto-wrap">
-          <img src="https://drive.google.com/thumbnail?id=1Fq5r58s9-gYwqQc3gf4vhRG2FOyKbiwW&sz=w400"
-               alt="Rozi Ansyah Tarihoran" class="guru-foto" loading="lazy" />
-        </div>
-        <div class="guru-info">
-          <div class="guru-nama">Rozi Ansyah Tarihoran, S.Pd</div>
-          <div class="guru-mapel">Prakarya</div>
-        </div>
-      </div>
-
-      <!-- ✏️ TAMBAH GURU BARU: duplikasi blok di bawah ini
-      <div class="guru-card reveal">
-        <div class="guru-foto-wrap">
-          <img src="https://drive.google.com/thumbnail?id=GANTI_ID_DISINI&sz=w400"
-               alt="Nama Guru" class="guru-foto" loading="lazy" />
-        </div>
-        <div class="guru-info">
-          <div class="guru-nama">Nama Guru, S.Pd</div>
-          <div class="guru-mapel">Mata Pelajaran</div>
-        </div>
-      </div>
-      -->
-    </div>
+    <div class="guru-grid" id="guruGrid"></div>
   </div>
 </section>
 
-
-<!-- ================================================================
-     KEGIATAN SEKOLAH — VIDEO YOUTUBE
-     → Tambah video: duplikasi <button class="video-tab"> & tambah entry di DATA_VIDEO
-================================================================ -->
-<section id="kegiatan" class="section-pad">
+<!-- KEGIATAN VIDEO -->
+<section id="kegiatan" class="section-pad" style="background:var(--putih)">
   <div class="container">
-    <div class="tengah reveal" style="margin-bottom:48px;">
+    <div class="tengah reveal" style="margin-bottom:48px">
       <div class="badge-label">🎬 Dokumentasi</div>
       <h2 class="teks-judul">Kegiatan Sekolah</h2>
       <div class="garis-emas"></div>
       <p class="teks-sub">Dokumentasi kegiatan akademik, seni budaya, dan ekstrakurikuler siswa</p>
     </div>
-
-    <!-- Tab navigasi video -->
-    <div class="video-tabs" id="videoTabs">
-      <button class="video-tab aktif" data-vid="47WNN2ZAcaQ" onclick="gantiVideo(this)">
-        📹 Kegiatan Sekolah 1
-      </button>
-      <!-- Tambah tab baru di sini jika ada video baru -->
-      <!-- <button class="video-tab" data-vid="VIDEO_ID_YOUTUBE" onclick="gantiVideo(this)">📹 Kegiatan 2</button> -->
-    </div>
-
+    <div class="video-tabs" id="videoTabs"></div>
     <div class="video-bingkai reveal">
-      <iframe id="ytFrame"
-        src="https://www.youtube.com/embed/47WNN2ZAcaQ"
-        title="Kegiatan SMP Negeri 2 Sorkam"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen loading="lazy">
-      </iframe>
+      <iframe id="ytFrame" src="" title="Video Kegiatan"
+        allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 </section>
 
-
-<!-- ================================================================
-     PRESTASI SEKOLAH
-     → Tambah kategori: duplikasi .prestasi-card
-     → Tambah prestasi: tambah <li> dalam .p-daftar
-================================================================ -->
-<section id="prestasi" class="section-pad">
+<!-- PRESTASI -->
+<section id="prestasi" class="section-pad" style="background:var(--abu-50)">
   <div class="container">
-    <div class="tengah reveal" style="margin-bottom:48px;">
+    <div class="tengah reveal" style="margin-bottom:48px">
       <div class="badge-label">🏆 Kebanggaan Kami</div>
       <h2 class="teks-judul">Prestasi Sekolah</h2>
       <div class="garis-emas"></div>
-      <p class="teks-sub">Berbagai capaian membanggakan dari siswa dan sekolah SMP Negeri 2 Sorkam</p>
     </div>
-
-    <div class="prestasi-grid">
-      <div class="prestasi-card unggulan reveal">
-        <div class="p-icon">🏆</div>
-        <div class="p-judul">Prestasi Akademik</div>
-        <ul class="p-daftar">
-          <li class="p-item">Nilai UN tertinggi tingkat kecamatan</li>
-          <li class="p-item">Olimpiade Matematika tingkat kabupaten</li>
-          <li class="p-item">Lomba IPA antar sekolah berprestasi</li>
-        </ul>
-      </div>
-      <div class="prestasi-card reveal delay-1">
-        <div class="p-icon">⚽</div>
-        <div class="p-judul">Prestasi Olahraga</div>
-        <ul class="p-daftar">
-          <li class="p-item">Juara sepak bola pelajar tingkat kecamatan</li>
-          <li class="p-item">Atletik O2SN tingkat kabupaten</li>
-          <li class="p-item">Bulu tangkis pelajar berprestasi</li>
-        </ul>
-      </div>
-      <div class="prestasi-card reveal delay-2">
-        <div class="p-icon">🎨</div>
-        <div class="p-judul">Seni & Budaya</div>
-        <ul class="p-daftar">
-          <li class="p-item">Pentas seni budaya Batak terpilih</li>
-          <li class="p-item">Lomba puisi tingkat kecamatan</li>
-          <li class="p-item">Festival seni pelajar kabupaten</li>
-        </ul>
-      </div>
-      <div class="prestasi-card reveal delay-3">
-        <div class="p-icon">🥇</div>
-        <div class="p-judul">Pramuka & Paskibra</div>
-        <ul class="p-daftar">
-          <li class="p-item">Juara Jambore Pramuka tingkat cabang</li>
-          <li class="p-item">Pasukan pengibar bendera terpilih</li>
-          <li class="p-item">Perkemahan bakti pramuka aktif</li>
-        </ul>
-      </div>
-    </div>
+    <div class="prestasi-grid" id="prestasiGrid"></div>
   </div>
 </section>
 
-
-<!-- ================================================================
-     FASILITAS SEKOLAH
-     → Tambah/hapus .fasilitas-card untuk mengubah daftar fasilitas
-================================================================ -->
-<section id="fasilitas" class="section-pad">
+<!-- FASILITAS -->
+<section id="fasilitas" class="section-pad" style="background:var(--putih)">
   <div class="container">
-    <div class="tengah reveal" style="margin-bottom:48px;">
+    <div class="tengah reveal" style="margin-bottom:48px">
       <div class="badge-label">🏗️ Infrastruktur</div>
       <h2 class="teks-judul">Fasilitas Sekolah</h2>
       <div class="garis-emas"></div>
-      <p class="teks-sub">Fasilitas lengkap untuk mendukung proses belajar mengajar yang optimal</p>
     </div>
-
-    <div class="fasilitas-grid">
-      <div class="fasilitas-card reveal"><div class="f-ikon">🏫</div><div class="f-nama">Ruang Kelas</div></div>
-      <div class="fasilitas-card reveal delay-1"><div class="f-ikon">📚</div><div class="f-nama">Perpustakaan</div></div>
-      <div class="fasilitas-card reveal delay-2"><div class="f-ikon">🔬</div><div class="f-nama">Laboratorium IPA</div></div>
-      <div class="fasilitas-card reveal"><div class="f-ikon">⚽</div><div class="f-nama">Lapangan Olahraga</div></div>
-      <div class="fasilitas-card reveal delay-1"><div class="f-ikon">🕌</div><div class="f-nama">Mushola</div></div>
-      <div class="fasilitas-card reveal delay-2"><div class="f-ikon">💻</div><div class="f-nama">Ruang Komputer</div></div>
-      <div class="fasilitas-card reveal"><div class="f-ikon">🏥</div><div class="f-nama">UKS</div></div>
-      <div class="fasilitas-card reveal delay-1"><div class="f-ikon">🍽️</div><div class="f-nama">Kantin Sekolah</div></div>
-    </div>
+    <div class="fasilitas-grid" id="fasilitasGrid"></div>
   </div>
 </section>
 
-
-<!-- ================================================================
-     GALERI SEKOLAH
-     → Tambah foto: duplikasi .galeri-item di bawah
-     → Update juga array DATA_GALERI di bagian <script>
-================================================================ -->
-<section id="galeri" class="section-pad">
+<!-- GALERI -->
+<section id="galeri" class="section-pad" style="background:var(--abu-50)">
   <div class="container">
-    <div class="tengah reveal" style="margin-bottom:48px;">
+    <div class="tengah reveal" style="margin-bottom:48px">
       <div class="badge-label">📸 Dokumentasi</div>
       <h2 class="teks-judul">Galeri Sekolah</h2>
       <div class="garis-emas"></div>
-      <p class="teks-sub">Momen-momen berharga kehidupan sekolah SMP Negeri 2 Sorkam</p>
     </div>
-
-    <div class="galeri-grid">
-      <div class="galeri-item besar reveal" onclick="bukaLb(0)">
-        <img src="https://drive.google.com/thumbnail?id=1LcREKkBuN7bTfYpuH5x2FJH2jvhyFYSr&sz=w800"
-             alt="Depan Sekolah" class="galeri-img" loading="lazy" />
-        <div class="galeri-overlay"><div class="galeri-keterangan">📷 Depan Sekolah</div></div>
-      </div>
-      <div class="galeri-item reveal" onclick="bukaLb(1)">
-        <img src="https://drive.google.com/thumbnail?id=1dTnvbD-FsMIxLEiJm47mmPxqriz87UzH&sz=w800"
-             alt="Ruang Sekolah" class="galeri-img" loading="lazy" />
-        <div class="galeri-overlay"><div class="galeri-keterangan">📷 Ruang Sekolah</div></div>
-      </div>
-      <div class="galeri-item reveal" onclick="bukaLb(2)">
-        <img src="https://drive.google.com/thumbnail?id=1Pf_RWuZCS-a1dByyXpgjaTN0C2FrfqKu&sz=w800"
-             alt="Lingkungan Sekolah" class="galeri-img" loading="lazy" />
-        <div class="galeri-overlay"><div class="galeri-keterangan">📷 Lingkungan Sekolah</div></div>
-      </div>
-      <div class="galeri-item reveal" onclick="bukaLb(3)">
-        <img src="https://drive.google.com/thumbnail?id=1A-_9kYHgLaJLfO6Q8d9jvHgvpwqIuE_y&sz=w800"
-             alt="Kegiatan Siswa" class="galeri-img" loading="lazy" />
-        <div class="galeri-overlay"><div class="galeri-keterangan">📷 Kegiatan Siswa</div></div>
-      </div>
-      <div class="galeri-item reveal" onclick="bukaLb(4)">
-        <img src="https://drive.google.com/thumbnail?id=10mO1uI3eEKEQzJtVgOh4Z-XcunLfRz17&sz=w800"
-             alt="Aktivitas Siswa" class="galeri-img" loading="lazy" />
-        <div class="galeri-overlay"><div class="galeri-keterangan">📷 Aktivitas Siswa</div></div>
-      </div>
-      <!-- ✏️ TAMBAH FOTO BARU: duplikasi blok di bawah
-      <div class="galeri-item reveal" onclick="bukaLb(5)">
-        <img src="https://drive.google.com/thumbnail?id=GANTI_ID_DISINI&sz=w800"
-             alt="Keterangan Foto" class="galeri-img" loading="lazy" />
-        <div class="galeri-overlay"><div class="galeri-keterangan">📷 Keterangan Foto</div></div>
-      </div>
-      Jangan lupa tambahkan juga entry ke DATA_GALERI di script!
-      -->
-    </div>
+    <div class="galeri-grid" id="galeriGrid"></div>
   </div>
 </section>
 
 <!-- Lightbox -->
-<div id="lightbox">
-  <button class="lb-tombol" id="lb-tutup" onclick="tutupLb()" aria-label="Tutup">✕</button>
-  <button class="lb-tombol" id="lb-prev" onclick="navLb(-1)" aria-label="Sebelumnya">‹</button>
-  <img id="lb-img" src="" alt="Galeri Sekolah" />
-  <button class="lb-tombol" id="lb-next" onclick="navLb(1)" aria-label="Berikutnya">›</button>
+<div id="lightbox" onclick="if(event.target===this)tutupLb()">
+  <button class="lb-tombol" id="lb-tutup" onclick="tutupLb()">✕</button>
+  <button class="lb-tombol" id="lb-prev"  onclick="navLb(-1)">‹</button>
+  <img id="lbImg" src="" alt="Galeri"/>
+  <button class="lb-tombol" id="lb-next"  onclick="navLb(1)">›</button>
 </div>
 
-
-<!-- ================================================================
-     LOKASI & KONTAK
-================================================================ -->
-<section id="lokasi" class="section-pad">
+<!-- SPMB -->
+<section id="spmb" class="section-pad" style="background:linear-gradient(135deg,#EFF6FF 0%,#FEF9E7 100%);border-top:1px solid #DBEAFE">
   <div class="container">
-    <div class="tengah reveal" style="margin-bottom:48px;">
+    <div class="tengah reveal" style="margin-bottom:48px">
+      <div class="badge-label">🎉 Pendaftaran Dibuka</div>
+      <h2 class="teks-judul" id="spmbTahun"></h2>
+      <div class="garis-emas"></div>
+      <p class="teks-sub" id="spmbSubjudul"></p>
+    </div>
+    <div class="spmb-grid">
+      <div class="reveal-kiri">
+        <img
+          src="https://drive.google.com/thumbnail?id=1RldJkrbvx34fE58I4abAsgnjel5eNyVM&sz=w800"
+          alt="Poster SPMB SMP Negeri 2 Sorkam 2026/2027"
+          style="width:100%;border-radius:var(--radius-lg);box-shadow:var(--bayangan-lg);display:block;"
+        />
+      </div>
+      <div class="reveal-kanan">
+        <div class="badge-label">📚 Info Pendaftaran</div>
+        <h3 class="teks-judul" id="spmbJudul2" style="font-size:clamp(22px,3vw,32px)"></h3>
+        <div class="garis-emas"></div>
+        <p class="teks-sub" id="spmbDeskripsi"></p>
+        <div class="spmb-blok">
+          <div class="spmb-blok-judul">🎯 Jalur Penerimaan</div>
+          <div class="spmb-tag-grid" id="spmbJalur"></div>
+        </div>
+        <div class="spmb-blok">
+          <div class="spmb-blok-judul">🏘️ Wilayah Domisili</div>
+          <div class="spmb-wilayah-grid" id="spmbWilayah"></div>
+        </div>
+        <div class="spmb-blok">
+          <div class="spmb-blok-judul">📞 Hubungi Kami</div>
+          <div class="spmb-kontak-list" id="spmbKontak"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOKASI -->
+<section id="lokasi" class="section-pad" style="background:var(--putih)">
+  <div class="container">
+    <div class="tengah reveal" style="margin-bottom:48px">
       <div class="badge-label">📍 Hubungi Kami</div>
       <h2 class="teks-judul">Lokasi & Kontak</h2>
       <div class="garis-emas"></div>
-      <p class="teks-sub">Temukan kami di Jl. Sibolga–Barus, Sorkam, Tapanuli Tengah</p>
     </div>
-
     <div class="lokasi-grid">
-      <!-- Peta Google Maps — ganti koordinat di src jika diperlukan -->
       <div class="peta-wrap reveal-kiri">
-        <iframe
-          src="https://maps.google.com/maps?q=1.9012699098305932,98.60402991810382&z=16&output=embed"
-          title="Peta SMP Negeri 2 Sorkam" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <iframe id="petaFrame" src="" title="Peta Lokasi" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-
-      <!-- Informasi kontak — edit di sini -->
       <div class="reveal-kanan">
         <div class="kontak-list">
           <div class="kontak-item">
             <div class="kontak-ikon">📍</div>
             <div>
               <div class="kontak-label">Alamat</div>
-              <div class="kontak-nilai">Jl. Sibolga–Barus, Nai Pos Pos Barat, Kec. Sorkam,<br />Kab. Tapanuli Tengah, Sumatera Utara 22563</div>
+              <div class="kontak-nilai" id="kontakAlamat"></div>
             </div>
           </div>
           <div class="kontak-item">
             <div class="kontak-ikon">✉️</div>
             <div>
               <div class="kontak-label">Email</div>
-              <div class="kontak-nilai">
-                <a href="mailto:smpnegeri2sorkam@gmail.com">smpnegeri2sorkam@gmail.com</a>
-              </div>
+              <div class="kontak-nilai" id="kontakEmail"></div>
             </div>
           </div>
           <div class="kontak-item">
             <div class="kontak-ikon">📱</div>
             <div>
               <div class="kontak-label">WhatsApp</div>
-              <!-- Ganti nomor WA di href dan teks di bawah ini -->
-              <div class="kontak-nilai">+62 813-6179-7976</div>
+              <div class="kontak-nilai" id="kontakWA"></div>
             </div>
           </div>
         </div>
-
-        <!-- Tombol WA — ganti nomor di href jika berubah -->
-        <a href="https://wa.me/6281361797976?text=Halo%20SMP%20Negeri%202%20Sorkam%2C%20saya%20ingin%20bertanya%20mengenai%20sekolah."
-           target="_blank" rel="noopener" class="wa-tombol" style="margin-top:16px;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
+        <a id="waTombol" href="#" target="_blank" rel="noopener" class="wa-tombol" style="margin-top:16px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Hubungi via WhatsApp
         </a>
       </div>
@@ -1250,171 +569,570 @@ ul { list-style: none; }
   </div>
 </section>
 
-
-<!-- ================================================================
-     FOOTER
-================================================================ -->
-<footer id="footer">
+<!-- FOOTER -->
+<footer id="footer" style="background:var(--abu-900);padding:60px 0 0">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="https://drive.google.com/thumbnail?id=1u13N13Xu9L8Q6rfZ6YcwRakwaU2x41Iv&sz=w200"
-             alt="Logo" class="footer-logo" />
-        <div class="footer-nama">SMP Negeri 2 Sorkam</div>
-        <p class="footer-desc">
-          Membangun generasi cerdas, berkarakter, dan berprestasi untuk Indonesia yang lebih maju.
-          Berdiri sejak 1980 di Sorkam, Tapanuli Tengah.
-        </p>
+        <img id="footerLogo" src="" alt="Logo" class="footer-logo"/>
+        <div class="footer-nama" id="footerNama"></div>
+        <p  class="footer-desc" id="footerDesc"></p>
       </div>
       <div class="footer-kolom">
         <h4>Menu</h4>
-        <ul class="footer-link-list">
-          <li><a href="#hero">Beranda</a></li>
-          <li><a href="#tentang">Tentang Kami</a></li>
-          <li><a href="#visimisi">Visi & Misi</a></li>
-          <li><a href="#sambutan">Sambutan Kepsek</a></li>
-          <li><a href="#guru">Guru</a></li>
-        </ul>
+        <ul class="footer-link-list" id="footerMenu"></ul>
       </div>
       <div class="footer-kolom">
         <h4>Info</h4>
-        <ul class="footer-link-list">
-          <li><a href="#kegiatan">Kegiatan</a></li>
-          <li><a href="#prestasi">Prestasi</a></li>
-          <li><a href="#fasilitas">Fasilitas</a></li>
-          <li><a href="#galeri">Galeri</a></li>
-          <li><a href="#lokasi">Lokasi</a></li>
-        </ul>
+        <ul class="footer-link-list" id="footerInfo"></ul>
       </div>
       <div class="footer-kolom">
         <h4>Kontak</h4>
-        <p class="footer-info-item">📍 Jl. Sibolga–Barus, Nai Pos Pos Barat, Sorkam, Tapanuli Tengah</p>
-        <p class="footer-info-item">✉️ <a href="mailto:smpnegeri2sorkam@gmail.com">smpnegeri2sorkam@gmail.com</a></p>
-        <p class="footer-info-item">📱 <a href="https://wa.me/6281361797976" target="_blank">+62 813-6179-7976</a></p>
+        <p class="footer-info-item" id="footerAlamat"></p>
+        <p class="footer-info-item" id="footerEmail"></p>
+        <p class="footer-info-item" id="footerWA"></p>
       </div>
     </div>
     <div class="footer-bawah">
-      <p>© 2025 <span>SMP Negeri 2 Sorkam</span> · NPSN 10206527 · Kec. Sorkam, Kab. Tapanuli Tengah, Sumatera Utara</p>
+      <p id="footerCopyright"></p>
     </div>
   </div>
 </footer>
 
-
-<!-- ================================================================
-     JAVASCRIPT
-================================================================ -->
 <script>
-/* ----------------------------------------------------------------
-   DATA GALERI
-   → Tambah foto baru: tambah objek { src, label } ke array ini
-   → src pakai format Google Drive thumbnail
----------------------------------------------------------------- */
-const DATA_GALERI = [
-  { src: 'https://drive.google.com/thumbnail?id=1LcREKkBuN7bTfYpuH5x2FJH2jvhyFYSr&sz=w1400', label: 'Depan Sekolah' },
-  { src: 'https://drive.google.com/thumbnail?id=1dTnvbD-FsMIxLEiJm47mmPxqriz87UzH&sz=w1400', label: 'Ruang Sekolah' },
-  { src: 'https://drive.google.com/thumbnail?id=1Pf_RWuZCS-a1dByyXpgjaTN0C2FrfqKu&sz=w1400', label: 'Lingkungan Sekolah' },
-  { src: 'https://drive.google.com/thumbnail?id=1A-_9kYHgLaJLfO6Q8d9jvHgvpwqIuE_y&sz=w1400', label: 'Kegiatan Siswa' },
-  { src: 'https://drive.google.com/thumbnail?id=10mO1uI3eEKEQzJtVgOh4Z-XcunLfRz17&sz=w1400', label: 'Aktivitas Siswa' },
-  // Tambah foto di sini:
-  // { src: 'https://drive.google.com/thumbnail?id=GANTI_ID&sz=w1400', label: 'Keterangan Foto' },
-];
+/* ================================================================
 
-/* ----------------------------------------------------------------
-   NAVBAR SCROLL
----------------------------------------------------------------- */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
+   ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗
+  ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝
+  ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗
+  ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║
+  ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝
+   ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝
+
+  Semua data website ada di sini.
+  Edit bagian ini untuk update konten — tidak perlu menyentuh HTML di bawah.
+
+================================================================ */
+
+const CONFIG = {
+
+  /* ============================================================
+     IDENTITAS SEKOLAH
+  ============================================================ */
+  sekolah: {
+    nama:           "SMP Negeri 2 Sorkam",
+    nama_singkat:   "SMPN 2 Sorkam",
+    npsn:           "10206527",
+    akreditasi:     "B",
+    kurikulum:      "Merdeka",
+    tahun_berdiri:  "1980",
+    status:         "Negeri",
+    tagline:        "Membangun Generasi Cerdas, Berkarakter, dan Berprestasi",
+    deskripsi:      "Sekolah menengah pertama negeri terpercaya di Kabupaten Tapanuli Tengah, Sumatera Utara, berkomitmen menghadirkan pendidikan berkualitas bagi generasi penerus bangsa sejak 1980.",
+    no_sk:          "0206/0/1980",
+    tgl_sk:         "30 Juli 1980",
+    alamat:         "Jl. Sibolga–Barus, Nai Pos Pos Barat, Kec. Sorkam, Kab. Tapanuli Tengah, Sumatera Utara 22563",
+    email:          "smpnegeri2sorkam@gmail.com",
+    whatsapp:       "6281361797976",   // format internasional tanpa +
+    wa_label:       "+62 813-6179-7976",
+    maps_embed:     "https://maps.google.com/maps?q=1.9012699098305932,98.60402991810382&z=16&output=embed",
+    lokasi_label:   "West Naipospos, Sorkam, Tapanuli Tengah, Sumatera Utara",
+  },
+
+  /* ============================================================
+     FOTO — format Google Drive thumbnail
+     Cara: ambil ID dari link drive.google.com/file/d/ID_INI/view
+     lalu paste ke bawah
+  ============================================================ */
+  foto: {
+    logo:           "1u13N13Xu9L8Q6rfZ6YcwRakwaU2x41Iv",
+    hero:           "1LcREKkBuN7bTfYpuH5x2FJH2jvhyFYSr",
+    tentang:        "1dTnvbD-FsMIxLEiJm47mmPxqriz87UzH",
+  },
+
+  /* ============================================================
+     VISI & MISI
+  ============================================================ */
+  visi: "Terwujudnya peserta didik yang bertaqwa kepada Tuhan Yang Maha Esa, berakhlak mulia, cerdas, terampil, mandiri, dan berdaya saing tinggi dalam rangka mencapai tujuan pendidikan nasional.",
+
+  misi: [
+    "Meningkatkan kualitas proses pembelajaran dan hasil pendidikan yang bermutu",
+    "Membangun karakter siswa yang berakhlak mulia, jujur, dan bertanggung jawab",
+    "Meningkatkan kedisiplinan warga sekolah dalam segala aspek kehidupan",
+    "Mengembangkan potensi siswa melalui kegiatan akademik, seni, dan olahraga",
+    "Menciptakan lingkungan belajar yang nyaman, bersih, dan kondusif untuk semua",
+  ],
+
+  /* ============================================================
+     SAMBUTAN KEPALA SEKOLAH
+  ============================================================ */
+  kepsek: {
+    nama:    "Dra. ERNITA",
+    jabatan: "Kepala Sekolah",
+    foto_id: "19c3cyeF624m_EDfno0fa2JV4XN-V6cl2",
+    sambutan: `Assalamu'alaikum Warahmatullahi Wabarakatuh. Selamat datang di website resmi SMP Negeri 2 Sorkam. Kami senantiasa berupaya memberikan pelayanan pendidikan terbaik bagi seluruh peserta didik kami. Pendidikan bukan hanya tentang transfer ilmu pengetahuan, melainkan juga pembentukan karakter, budi pekerti, dan kepribadian yang mulia.<br/><br/>Kami berkomitmen untuk terus berinovasi dalam proses pembelajaran, mempersiapkan generasi muda yang tidak hanya cerdas secara akademik, tetapi juga memiliki iman yang kuat, akhlak yang baik, dan semangat untuk berkontribusi bagi kemajuan bangsa Indonesia.<br/><br/>Mari bersama kita wujudkan generasi emas SMP Negeri 2 Sorkam yang cerdas, berkarakter, dan berprestasi.`,
+  },
+
+  /* ============================================================
+     GURU — tambah/hapus objek { nama, mapel, foto_id }
+     foto_id = ID Google Drive foto guru
+  ============================================================ */
+  guru: [
+    { nama: "Sedni Dewi Siahaan, S.Pd",          mapel: "IPS",                          foto_id: "1bgAdmr3Nsi7WfO9wjb4ULbGoUV6oRj7Z" },
+    { nama: "Syairo Crisnawati Br. Limbong, S.Ag",mapel: "Pend. Agama Katolik & BP",    foto_id: "1Xb-7_iiBj1LPQyMUxx1haF2LEzp6u3ZR" },
+    { nama: "Octa Veronica Manik, S.Pd",          mapel: "IPA",                          foto_id: "1l9iqQvfZtMqjIhI6yPEhZG1GKscrYNpd" },
+    { nama: "Wardiansyah Simatupang, S.Pd",       mapel: "Pend. Agama Islam & BP",       foto_id: "1Q3g4D5WlpPYEFlAzeFBHffKpYN5C0KYA" },
+    { nama: "Ley Noveria Pandiangan, S.Pd",        mapel: "Bahasa Indonesia",             foto_id: "1VAM2-W8Bb87uphCCkj2vhNpRxa-9ecAB" },
+    { nama: "Junaida, S.Psi",                      mapel: "BK",                           foto_id: "1gWn71TSuz8pqVjqoCvwsBSauOiJlOrjh" },
+    { nama: "Ifwan Adbi Nainggolan, S.Pd",         mapel: "Bahasa Inggris",               foto_id: "18gZBzUzjjjQN-g4mB62i2qNBYav8Ltri" },
+    { nama: "Lisnawati Pasaribu, S.Pd",            mapel: "Bahasa Indonesia",             foto_id: "1cIPYieHFx4U22LKvuf0UJji33Hx8NP_O" },
+    { nama: "Rina Nainggolan, S.Pd",               mapel: "PAK & Budi Pekerti",           foto_id: "1LN0Dxkz4U16eUEYJ0nT_WKkdY2JPOwBY" },
+    { nama: "Rozi Ansyah Tarihoran, S.Pd",         mapel: "Staff",                        foto_id: "1Fq5r58s9-gYwqQc3gf4vhRG2FOyKbiwW" },
+    // Tambah guru baru di sini:
+    // { nama: "Nama Guru, S.Pd", mapel: "Mata Pelajaran", foto_id: "ID_GOOGLE_DRIVE" },
+  ],
+
+  /* ============================================================
+     VIDEO KEGIATAN — tambah/hapus { judul, youtube_id }
+     youtube_id = bagian ID dari link youtube.com/watch?v=ID_INI
+  ============================================================ */
+  video: [
+    { judul: "Kegiatan Sekolah 1", youtube_id: "47WNN2ZAcaQ" },
+    // Tambah video baru di sini:
+    // { judul: "Kegiatan Sekolah 2", youtube_id: "ID_YOUTUBE" },
+  ],
+
+  /* ============================================================
+     PRESTASI — tambah/hapus kategori & isi
+     unggulan: true = kartu tampil dengan background biru gelap
+  ============================================================ */
+  prestasi: [
+    {
+      icon: "🏆", judul: "Prestasi Akademik", unggulan: true,
+      daftar: [
+        "Nilai UN tertinggi tingkat kecamatan",
+        "Olimpiade Matematika tingkat kabupaten",
+        "Lomba IPA antar sekolah berprestasi",
+      ]
+    },
+    {
+      icon: "⚽", judul: "Prestasi Olahraga", unggulan: false,
+      daftar: [
+        "Juara sepak bola pelajar tingkat kecamatan",
+        "Atletik O2SN tingkat kabupaten",
+        "Bulu tangkis pelajar berprestasi",
+      ]
+    },
+    {
+      icon: "🎨", judul: "Seni & Budaya", unggulan: false,
+      daftar: [
+        "Pentas seni budaya Batak terpilih",
+        "Lomba puisi tingkat kecamatan",
+        "Festival seni pelajar kabupaten",
+      ]
+    },
+    {
+      icon: "🥇", judul: "Pramuka & Paskibra", unggulan: false,
+      daftar: [
+        "Juara Jambore Pramuka tingkat cabang",
+        "Pasukan pengibar bendera terpilih",
+        "Perkemahan bakti pramuka aktif",
+      ]
+    },
+    // Tambah kategori prestasi baru di sini:
+    // { icon: "🎯", judul: "Judul Kategori", unggulan: false, daftar: ["Item 1","Item 2"] },
+  ],
+
+  /* ============================================================
+     FASILITAS — tambah/hapus { icon, nama }
+  ============================================================ */
+  fasilitas: [
+    { icon: "🏫", nama: "Ruang Kelas" },
+    { icon: "📚", nama: "Perpustakaan" },
+    { icon: "🔬", nama: "Laboratorium IPA" },
+    { icon: "⚽", nama: "Lapangan Olahraga" },
+    { icon: "🕌", nama: "Mushola" },
+    { icon: "💻", nama: "Ruang Komputer" },
+    { icon: "🏥", nama: "UKS" },
+    { icon: "🍽️", nama: "Kantin Sekolah" },
+    // Tambah fasilitas baru di sini:
+    // { icon: "🎭", nama: "Aula" },
+  ],
+
+  /* ============================================================
+     GALERI — tambah/hapus { foto_id, label, besar }
+     besar: true = foto tampil lebih tinggi (span 2 baris)
+     foto_id = ID Google Drive
+  ============================================================ */
+  galeri: [
+    { foto_id: "1LcREKkBuN7bTfYpuH5x2FJH2jvhyFYSr", label: "Depan Sekolah",       besar: true  },
+    { foto_id: "1dTnvbD-FsMIxLEiJm47mmPxqriz87UzH", label: "Ruang Sekolah",        besar: false },
+    { foto_id: "1Pf_RWuZCS-a1dByyXpgjaTN0C2FrfqKu", label: "Lingkungan Sekolah",   besar: false },
+    { foto_id: "1A-_9kYHgLaJLfO6Q8d9jvHgvpwqIuE_y", label: "Kegiatan Siswa",       besar: false },
+    { foto_id: "10mO1uI3eEKEQzJtVgOh4Z-XcunLfRz17", label: "Aktivitas Siswa",      besar: false },
+    { foto_id: "153FW25RNt6rtsFgWdKJxQhpLqwLgnrjn", label: "Kegiatan Sekolah",     besar: false },
+    { foto_id: "1KWSwIXHAcS8OFOSFG_o07NEJ4EIskpyw", label: "Kegiatan Sekolah",     besar: false },
+    { foto_id: "1TQX7eGwNeH9j2IVZphrvCpv_QG9n4E_-", label: "Kegiatan Sekolah",     besar: false },
+    { foto_id: "1hDIw4XKkCGWmjKnYMMnzXS1k7pt0CKqr", label: "Kegiatan Sekolah",     besar: false },
+    { foto_id: "1oy4cWXFqjL1HKuLFgmXf4V5TzJtOfxAg", label: "Kegiatan Sekolah",     besar: false },
+    // Tambah foto baru di sini:
+    // { foto_id: "ID_GOOGLE_DRIVE", label: "Keterangan Foto", besar: false },
+  ],
+
+  /* ============================================================
+     SPMB — isi dengan false untuk sembunyikan section SPMB
+     tampilkan: true/false
+  ============================================================ */
+  spmb: {
+    tampilkan:    true,
+    tahun:        "2026/2027",
+    deskripsi:    "Saatnya bergabung dan raih masa depan gemilang bersama kami. Sekolah yang mendukung pengembangan akademik, keagamaan, seni budaya, karakter, dan prestasi siswa.",
+    jadwal: [
+      { icon: "📝", label: "Pendaftaran",  tanggal: "22 – 26 Juni 2026" },
+      { icon: "📢", label: "Pengumuman",   tanggal: "27 Juni 2026"      },
+      { icon: "📋", label: "Daftar Ulang", tanggal: "1 – 6 Juli 2026"  },
+    ],
+    daya_tampung: "96",
+    rombel:       "3 Rombel",
+    waktu:        "08.00 – 12.00 WIB",
+    tempat:       "Ruang Tata Usaha",
+    jalur: [
+      "🏘️ Jalur Domisili",
+      "💛 Jalur Afirmasi",
+      "🏆 Jalur Prestasi",
+      "🔄 Jalur Mutasi",
+    ],
+    wilayah: [
+      "📌 Kel. Naipospos Barat",
+      "📌 Desa Pananggahan",
+      "📌 Kel. Sorkam",
+      "📌 Desa Sorkam Kiri",
+      "📌 Desa Sorkam Tengah",
+      // Tambah wilayah baru di sini
+    ],
+    kontak: [
+      { nama: "Sedni Dewi",          no: "081361797976" },
+      { nama: "Ipmawati Hutabarat",  no: "081264226407" },
+      { nama: "Herlina Situmeang",   no: "081263992228" },
+      { nama: "Nelpi Manalu",        no: "082166996884" },
+      // Tambah kontak baru di sini
+    ],
+  },
+
+  /* ============================================================
+     NAVIGASI — tambah/hapus item menu
+     href = ID section (tanpa #), label = teks menu
+     cta: true = tampil sebagai tombol kuning di ujung kanan
+  ============================================================ */
+  navigasi: [
+    { href: "tentang",   label: "Tentang"      },
+    { href: "visimisi",  label: "Visi & Misi"  },
+    { href: "guru",      label: "Guru"         },
+    { href: "kegiatan",  label: "Kegiatan"     },
+    { href: "fasilitas", label: "Fasilitas"    },
+    { href: "galeri",    label: "Galeri"       },
+    { href: "spmb",      label: "SPMB"         },
+    { href: "lokasi",    label: "Kontak", cta: true },
+  ],
+
+}; // ← tutup CONFIG — jangan hapus baris ini
+
+
+/* ================================================================
+   RENDER ENGINE — tidak perlu diubah
+================================================================ */
+function gdrive(id, size = 800) {
+  return `https://drive.google.com/thumbnail?id=${id}&sz=w${size}`;
+}
+function waLink(no, pesan = "") {
+  return `https://wa.me/${no}${pesan ? "?text=" + encodeURIComponent(pesan) : ""}`;
+}
+
+// ── RENDER ──
+const S = CONFIG.sekolah;
+
+// Meta
+document.getElementById("meta-title").textContent = S.nama + " – " + S.tagline;
+document.getElementById("meta-desc").setAttribute("content",
+  S.nama + " – Terakreditasi " + S.akreditasi + ". " + S.deskripsi);
+
+// ── NAVBAR ──────────────────────────────────────────────────
+const navDesktop = document.getElementById("navDesktop");
+const navMobile  = document.getElementById("mobileNav");
+const navLogo    = document.getElementById("navLogo");
+navLogo.src      = gdrive(CONFIG.foto.logo, 200);
+document.getElementById("navNama").textContent = S.nama;
+document.getElementById("navSub").textContent  = "Tapanuli Tengah · Sumatera Utara";
+CONFIG.navigasi.forEach(item => {
+  const a = document.createElement("a");
+  a.href  = "#" + item.href;
+  a.textContent = item.label;
+  if (item.cta) a.classList.add("nav-cta-btn");
+  navDesktop.appendChild(a);
+  const b = document.createElement("a");
+  b.href  = "#" + item.href;
+  b.textContent = item.label;
+  b.onclick = tutupMenu;
+  navMobile.appendChild(b);
 });
 
-/* ----------------------------------------------------------------
-   PARALLAX HERO
----------------------------------------------------------------- */
-const heroBg = document.getElementById('heroBg');
-window.addEventListener('scroll', () => {
-  if (window.innerWidth > 768) {
-    heroBg.style.transform = `translateY(${window.scrollY * 0.28}px)`;
-  }
-}, { passive: true });
+// Footer quick links (duplikasi navigasi)
+const fMenu = document.getElementById("footerMenu");
+const fInfo = document.getElementById("footerInfo");
+const half  = Math.ceil(CONFIG.navigasi.length / 2);
+CONFIG.navigasi.slice(0, half).forEach(item => {
+  const li = document.createElement("li");
+  li.innerHTML = `<a href="#${item.href}">${item.label}</a>`;
+  fMenu.appendChild(li);
+});
+CONFIG.navigasi.slice(half).forEach(item => {
+  const li = document.createElement("li");
+  li.innerHTML = `<a href="#${item.href}">${item.label}</a>`;
+  fInfo.appendChild(li);
+});
 
-/* ----------------------------------------------------------------
-   HAMBURGER MENU
----------------------------------------------------------------- */
-function toggleMenu() {
-  document.getElementById('mobileNav').classList.toggle('buka');
+// ── HERO ────────────────────────────────────────────────────
+document.getElementById("heroBg").style.backgroundImage =
+  `url('${gdrive(CONFIG.foto.hero, 1600)}')`;
+document.getElementById("heroNama").innerHTML =
+  S.nama.replace(" 2 ", " 2<br/>").replace("Sorkam","<span>Sorkam</span>");
+document.getElementById("heroTagline").textContent  = S.tagline;
+document.getElementById("heroDeskripsi").textContent = S.deskripsi;
+document.getElementById("heroBadge").textContent =
+  `⭐ Terakreditasi ${S.akreditasi} · NPSN ${S.npsn}`;
+const statsData = [
+  { angka: S.tahun_berdiri, label: "Tahun Berdiri" },
+  { angka: S.kurikulum,     label: "Kurikulum"     },
+  { angka: "Akred. " + S.akreditasi, label: "Akreditasi" },
+  { angka: S.status,        label: "Status Sekolah"},
+];
+const statsWrap = document.getElementById("heroStats");
+statsData.forEach(s => {
+  statsWrap.innerHTML += `<div class="stat-item">
+    <div class="stat-angka">${s.angka}</div>
+    <div class="stat-label">${s.label}</div>
+  </div>`;
+});
+
+// ── TENTANG ─────────────────────────────────────────────────
+document.getElementById("tentangFoto").src = gdrive(CONFIG.foto.tentang);
+document.getElementById("tentangTahun").textContent = (new Date().getFullYear() - parseInt(S.tahun_berdiri)) + "+";
+const infoData = [
+  { label: "NPSN",             nilai: S.npsn         },
+  { label: "Akreditasi",       nilai: S.akreditasi   },
+  { label: "No. SK Pendirian", nilai: S.no_sk        },
+  { label: "Tanggal SK",       nilai: S.tgl_sk       },
+  { label: "Alamat Lengkap",   nilai: S.alamat, lebar: true },
+];
+const infoGrid = document.getElementById("infoGrid");
+infoData.forEach(d => {
+  const div = document.createElement("div");
+  div.className = "info-item" + (d.lebar ? " lebar" : "");
+  div.innerHTML = `<div class="label">${d.label}</div><div class="nilai">${d.nilai}</div>`;
+  infoGrid.appendChild(div);
+});
+
+// ── VISI MISI ────────────────────────────────────────────────
+document.getElementById("visiTeks").textContent = CONFIG.visi;
+const misiList = document.getElementById("misiList");
+CONFIG.misi.forEach((m, i) => {
+  misiList.innerHTML += `<li class="misi-item">
+    <div class="misi-no">${i + 1}</div><span>${m}</span>
+  </li>`;
+});
+
+// ── SAMBUTAN ─────────────────────────────────────────────────
+const ks = CONFIG.kepsek;
+document.getElementById("kepsekFoto").src          = gdrive(ks.foto_id, 400);
+document.getElementById("kepsekFoto").alt          = ks.nama;
+document.getElementById("kepsekNama").textContent  = ks.nama;
+document.getElementById("kepsekJabatan").textContent = ks.jabatan;
+document.getElementById("kepsekSambutan").innerHTML  = ks.sambutan;
+
+// ── GURU ─────────────────────────────────────────────────────
+const guruGrid = document.getElementById("guruGrid");
+CONFIG.guru.forEach((g, i) => {
+  const delay = ["","delay-1","delay-2"][i % 3];
+  guruGrid.innerHTML += `<div class="guru-card reveal ${delay}">
+    <div class="guru-foto-wrap">
+      <img src="${gdrive(g.foto_id, 400)}" alt="${g.nama}" class="guru-foto" loading="lazy"/>
+    </div>
+    <div class="guru-info">
+      <div class="guru-nama">${g.nama}</div>
+      <div class="guru-mapel">${g.mapel}</div>
+    </div>
+  </div>`;
+});
+
+// ── VIDEO ─────────────────────────────────────────────────────
+const tabsWrap = document.getElementById("videoTabs");
+CONFIG.video.forEach((v, i) => {
+  const btn = document.createElement("button");
+  btn.className   = "video-tab" + (i === 0 ? " aktif" : "");
+  btn.setAttribute("data-vid", v.youtube_id);
+  btn.textContent = "📹 " + v.judul;
+  btn.onclick     = () => gantiVideo(btn);
+  tabsWrap.appendChild(btn);
+});
+if (CONFIG.video.length > 0) {
+  document.getElementById("ytFrame").src =
+    "https://www.youtube.com/embed/" + CONFIG.video[0].youtube_id;
 }
-function tutupMenu() {
-  document.getElementById('mobileNav').classList.remove('buka');
+// Sembunyikan tab jika hanya 1 video
+if (CONFIG.video.length <= 1) tabsWrap.style.display = "none";
+
+// ── PRESTASI ──────────────────────────────────────────────────
+const prestasiGrid = document.getElementById("prestasiGrid");
+CONFIG.prestasi.forEach((p, i) => {
+  const delay = ["","delay-1","delay-2","delay-3"][i % 4];
+  const items = p.daftar.map(d => `<li class="p-item">${d}</li>`).join("");
+  prestasiGrid.innerHTML += `<div class="prestasi-card${p.unggulan ? " unggulan":""} reveal ${delay}">
+    <div class="p-icon">${p.icon}</div>
+    <div class="p-judul">${p.judul}</div>
+    <ul class="p-daftar">${items}</ul>
+  </div>`;
+});
+
+// ── FASILITAS ─────────────────────────────────────────────────
+const fasGrid = document.getElementById("fasilitasGrid");
+CONFIG.fasilitas.forEach((f, i) => {
+  const delay = ["","delay-1","delay-2"][i % 3];
+  fasGrid.innerHTML += `<div class="fasilitas-card reveal ${delay}">
+    <div class="f-ikon">${f.icon}</div>
+    <div class="f-nama">${f.nama}</div>
+  </div>`;
+});
+
+// ── GALERI ────────────────────────────────────────────────────
+const galGrid = document.getElementById("galeriGrid");
+CONFIG.galeri.forEach((g, i) => {
+  galGrid.innerHTML += `<div class="galeri-item${g.besar ? " besar":""} reveal" onclick="bukaLb(${i})">
+    <img src="${gdrive(g.foto_id, 800)}" alt="${g.label}" class="galeri-img" loading="lazy"/>
+    <div class="galeri-overlay"><div class="galeri-keterangan">📷 ${g.label}</div></div>
+  </div>`;
+});
+
+// ── SPMB ──────────────────────────────────────────────────────
+const spmbSection = document.getElementById("spmb");
+if (!CONFIG.spmb.tampilkan) {
+  spmbSection.style.display = "none";
+  // Hapus juga dari navbar
+  document.querySelectorAll('a[href="#spmb"]').forEach(el => el.parentElement?.remove() || el.remove());
+} else {
+  const sp = CONFIG.spmb;
+  document.getElementById("spmbTahun").textContent     = "SPMB " + sp.tahun;
+  document.getElementById("spmbSubjudul").textContent  = "Seleksi Penerimaan Murid Baru UPTD SMP Negeri 2 Sorkam Tahun Pelajaran " + sp.tahun;
+  document.getElementById("spmbDeskripsi").textContent = sp.deskripsi;
+  document.getElementById("spmbJudul2").innerHTML      = `Bergabunglah Bersama<br/>Keluarga Besar ${S.nama_singkat}`;
+
+  // Jalur
+  const jalurWrap = document.getElementById("spmbJalur");
+  sp.jalur.forEach(j => {
+    jalurWrap.innerHTML += `<span class="spmb-tag">${j}</span>`;
+  });
+
+  // Wilayah
+  const wilWrap = document.getElementById("spmbWilayah");
+  sp.wilayah.forEach(w => {
+    wilWrap.innerHTML += `<div class="spmb-wil-item">${w}</div>`;
+  });
+
+  // Kontak
+  const kontakWrap = document.getElementById("spmbKontak");
+  sp.kontak.forEach(k => {
+    kontakWrap.innerHTML += `<a href="${waLink(k.no.replace(/\D/g,'').replace(/^0/,'62'))}"
+      target="_blank" rel="noopener" class="spmb-kontak-item">
+      <span class="spmb-wa-icon">📱</span>
+      <div><div class="sk-nama">${k.nama}</div><div class="sk-no">${k.no}</div></div>
+    </a>`;
+  });
 }
 
-/* ----------------------------------------------------------------
-   SCROLL REVEAL
----------------------------------------------------------------- */
-const obsOpts = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
+// ── LOKASI ────────────────────────────────────────────────────
+document.getElementById("petaFrame").src      = S.maps_embed;
+document.getElementById("kontakAlamat").textContent = S.alamat;
+document.getElementById("kontakEmail").innerHTML =
+  `<a href="mailto:${S.email}">${S.email}</a>`;
+document.getElementById("kontakWA").textContent = S.wa_label;
+document.getElementById("waTombol").href =
+  waLink(S.whatsapp, "Halo " + S.nama + ", saya ingin bertanya mengenai sekolah.");
+
+// ── FOOTER ────────────────────────────────────────────────────
+document.getElementById("footerLogo").src          = gdrive(CONFIG.foto.logo, 200);
+document.getElementById("footerNama").textContent  = S.nama;
+document.getElementById("footerDesc").textContent  =
+  "Membangun generasi cerdas, berkarakter, dan berprestasi untuk Indonesia yang lebih maju. Berdiri sejak " + S.tahun_berdiri + ".";
+document.getElementById("footerAlamat").textContent = S.alamat;
+document.getElementById("footerEmail").innerHTML   =
+  `<a href="mailto:${S.email}">${S.email}</a>`;
+document.getElementById("footerWA").innerHTML      =
+  `<a href="${waLink(S.whatsapp)}" target="_blank">${S.wa_label}</a>`;
+document.getElementById("footerCopyright").innerHTML =
+  `© ${new Date().getFullYear()} <span>${S.nama}</span> · NPSN ${S.npsn} · ${S.lokasi_label}`;
+
+// ── SCROLL REVEAL ─────────────────────────────────────────────
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('aktif');
-      obs.unobserve(e.target);
-    }
+    if (e.isIntersecting) { e.target.classList.add("aktif"); obs.unobserve(e.target); }
   });
-}, obsOpts);
-document.querySelectorAll('.reveal, .reveal-kiri, .reveal-kanan').forEach(el => obs.observe(el));
+}, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".reveal,.reveal-kiri,.reveal-kanan").forEach(el => obs.observe(el));
 
-/* ----------------------------------------------------------------
-   VIDEO TAB SWITCHER
-   → Ganti video: klik tab, src iframe berubah otomatis
----------------------------------------------------------------- */
-function gantiVideo(btn) {
-  document.querySelectorAll('.video-tab').forEach(t => t.classList.remove('aktif'));
-  btn.classList.add('aktif');
-  document.getElementById('ytFrame').src =
-    'https://www.youtube.com/embed/' + btn.getAttribute('data-vid');
-}
-
-/* ----------------------------------------------------------------
-   LIGHTBOX GALERI
----------------------------------------------------------------- */
-let lbIdx = 0;
-const lb    = document.getElementById('lightbox');
-const lbImg = document.getElementById('lb-img');
-
-function bukaLb(i) {
-  lbIdx = i;
-  lbImg.src = DATA_GALERI[i].src;
-  lb.classList.add('buka');
-  document.body.style.overflow = 'hidden';
-}
-function tutupLb() {
-  lb.classList.remove('buka');
-  document.body.style.overflow = '';
-}
-function navLb(arah) {
-  lbIdx = (lbIdx + arah + DATA_GALERI.length) % DATA_GALERI.length;
-  lbImg.src = DATA_GALERI[lbIdx].src;
-}
-lb.addEventListener('click', e => { if (e.target === lb) tutupLb(); });
-document.addEventListener('keydown', e => {
-  if (!lb.classList.contains('buka')) return;
-  if (e.key === 'Escape')      tutupLb();
-  if (e.key === 'ArrowLeft')   navLb(-1);
-  if (e.key === 'ArrowRight')  navLb(1);
-});
-
-/* ----------------------------------------------------------------
-   HIGHLIGHT NAV AKTIF SAAT SCROLL
----------------------------------------------------------------- */
-const semuaSection = document.querySelectorAll('section[id]');
-const semuaNavLink  = document.querySelectorAll('.nav-menu a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  semuaSection.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 120) cur = s.id;
-  });
-  semuaNavLink.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--emas-terang)' : '';
+// ── NAV HIGHLIGHT ─────────────────────────────────────────────
+const semuaSection = document.querySelectorAll("section[id]");
+window.addEventListener("scroll", () => {
+  let cur = "";
+  semuaSection.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+  document.querySelectorAll(".nav-menu a").forEach(a => {
+    a.style.color = a.getAttribute("href") === "#" + cur ? "var(--emas-terang)" : "";
   });
 }, { passive: true });
+
+
+/* ================================================================
+   FUNGSI GLOBAL
+================================================================ */
+const navbar = document.getElementById("navbar");
+window.addEventListener("scroll", () => {
+  navbar.classList.toggle("scrolled", window.scrollY > 50);
+  // Parallax hero
+  const bg = document.getElementById("heroBg");
+  if (bg && window.innerWidth > 768)
+    bg.style.transform = `translateY(${window.scrollY * 0.28}px)`;
+}, { passive: true });
+
+function toggleMenu() { document.getElementById("mobileNav").classList.toggle("buka"); }
+function tutupMenu()  { document.getElementById("mobileNav").classList.remove("buka"); }
+
+function gantiVideo(btn) {
+  document.querySelectorAll(".video-tab").forEach(t => t.classList.remove("aktif"));
+  btn.classList.add("aktif");
+  document.getElementById("ytFrame").src =
+    "https://www.youtube.com/embed/" + btn.getAttribute("data-vid");
+}
+
+// Lightbox
+let lbIdx = 0;
+function bukaLb(i) {
+  lbIdx = i;
+  document.getElementById("lbImg").src = gdrive(CONFIG.galeri[i].foto_id, 1400);
+  document.getElementById("lightbox").classList.add("buka");
+  document.body.style.overflow = "hidden";
+}
+function tutupLb() {
+  document.getElementById("lightbox").classList.remove("buka");
+  document.body.style.overflow = "";
+}
+function navLb(arah) {
+  lbIdx = (lbIdx + arah + CONFIG.galeri.length) % CONFIG.galeri.length;
+  document.getElementById("lbImg").src = gdrive(CONFIG.galeri[lbIdx].foto_id, 1400);
+}
+document.addEventListener("keydown", e => {
+  if (!document.getElementById("lightbox").classList.contains("buka")) return;
+  if (e.key === "Escape")      tutupLb();
+  if (e.key === "ArrowLeft")   navLb(-1);
+  if (e.key === "ArrowRight")  navLb(1);
+});
 </script>
 
 </body>
